@@ -1,0 +1,7 @@
+/* src/styles/common/background.css */
+.background {
+  background: #EAF6FA;      /* 피그마 지정 메인 배경 */
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+}
