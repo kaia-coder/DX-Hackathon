@@ -2,10 +2,11 @@
 .search-bar {
   display: flex;
   align-items: center;
-  background: #D3DEE1;          /* 피그마 기준 테두리/배경 */
+  background: #FFFFFF;         
   border-radius: 12px;
   padding: 8px 16px;
   margin: 20px 16px 6px 16px;   /* 상하좌우 여백 조정 */
+  border: 1px solid #CCCCCC;
 }
 .search-icon {
   margin-right: 8px;

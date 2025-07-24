@@ -4,7 +4,7 @@
   left: 0; right: 0; bottom: 0;
   height: 64px;
   background: #fff;
-  border-top: 1.5px solid #D3DEE1;  /* 피그마 테두리 */
+  border-top: 1.5px solid #D3DEE1;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -23,7 +23,7 @@
   transition: color 0.2s;
 }
 .nav-btn.active {
-  color: #21B0FA;  /* 선택 탭 강조 (필요에 따라 조정) */
+  color: #7B7B7B;
   font-weight: 600;
 }
 .icon-box {
