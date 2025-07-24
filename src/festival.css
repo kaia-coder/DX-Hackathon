@@ -1,0 +1,115 @@
+body {
+  background: #eaf6fa;
+  margin: 0;
+  font-family: 'Apple SD Gothic Neo', Arial, sans-serif;
+  color: #000;
+}
+.phone-frame {
+  max-width: 375px;
+  margin: 24px auto;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background: #eaf6fa;
+  padding: 16px 0 8px 0;
+  text-align: center;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  background: #eaf6fa;
+  margin-bottom: 6px;
+}
+main {
+  flex: 1;
+  overflow-y: auto;
+  background: #fff;
+  padding: 0 0 90px 0;
+}
+.poster-section {
+  background: #eaf6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 170px;
+  margin-bottom: 15px;
+}
+.poster-placeholder {
+  width: 320px;
+  height: 150px;
+  background: #d3dee1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #737373;
+  font-size: 24px;
+  border-radius: 14px;
+}
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 16px 16px 11px 16px;
+  color: #000;
+}
+.festival-list-section, .event-list-section {
+  margin-bottom: 20px;
+}
+.festival-list, .event-list {
+  padding: 0 16px;
+}
+.festival-item, .event-item {
+  display: flex;
+  margin-bottom: 16px;
+  background: #eaf6fa;
+  border-radius: 10px;
+  padding: 8px;
+  align-items: center;
+}
+.festival-img-placeholder, .event-img-placeholder {
+  width: 62px;
+  height: 85px;
+  background: #d3dee1;
+  border-radius: 10px;
+  margin-right: 12px;
+}
+.festival-info, .event-info {
+  flex: 1;
+}
+.festival-title, .event-title {
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.festival-desc, .event-desc {
+  color: #7f7f7f;
+  font-size: 14px;
+}
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  max-width: 375px;
+  background: #f8f8f8;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+  z-index: 10;
+}
+.bottom-nav button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 14px;
+  padding: 10px 0;
+  flex: 1;
+  cursor: pointer;
+}
