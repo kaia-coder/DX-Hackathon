@@ -1,19 +1,10 @@
 // src/App.js
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import MockHome from './pages/MockHome';
-import FestivalPage from './pages/FestivalPage';
-//import FestivalDetail from './pages/FestivalDetail'; // 생성 예정
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MockHome />} />
-        <Route path="/festival" element={<FestivalPage />} />
-      </Routes>
-    </Router>
-  );
+  return <MockHome />;
 }
 
 export default App;
