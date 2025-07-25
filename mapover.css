@@ -1,0 +1,103 @@
+/* src/styles/common/mapover.css */
+.poster-absolute {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+}
+.poster-topright {
+  /* 상단 오버레이: 검색창/로고와 겹치지 않게 */
+  top: 170px;   
+  right: 20px;
+}
+.poster-bottomleft {
+  /* 하단 오버레이: 네비게이션과 겹치지 않게 */
+  left: 18px;
+  bottom: 90px;
+}
+.white-topbox {
+  width: 100px;
+  height: 140px;
+  background: white;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: 15px;
+}
+.white-bottombox {
+  width: 90px;
+  height: 130px;
+  background: white;
+  margin-bottom: 0;
+  margin-top: 0;
+  position: relative;
+  margin-left: -6px;
+}
+.arrow-topimg {
+  width: 130px;
+  height: auto;
+}
+.arrow-bottomimg {
+  width: 80px;
+  height: auto;
+}
+.arrow-top {
+  margin-top: -25px;  /* 위쪽에 살짝 겹치게 */
+  z-index: 120 !important;    /* 네모, 포스터보다 더 높게! */
+  position: relative;         /* z-index는 position이 있어야 적용됨 */
+}
+.arrow-bottom {
+  margin-bottom: -3px;
+  z-index: 120 !important;    /* 네모, 포스터보다 더 높게! */
+  position: relative;         /* z-index는 position이 있어야 적용됨 */
+}
+/* SVG 및 경로 전체에 */
+#main-map, #main-map * {
+  outline: none !important;
+  box-shadow: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+
+  /* 웹kit(폰/모바일) 터치 선택 하이라이트 제거 */
+  -webkit-tap-highlight-color: transparent !important;
+  -tap-highlight-color: transparent !important;
+
+  /* 드래그 등 강조 표시 안 나오게 */
+  background: transparent !important;
+}
+
+#main-map path:focus,
+#main-map path:active {
+  outline: none !important;
+  box-shadow: none !important;
+  fill-opacity: 1 !important; /* 혹시 포커스/액티브시 투명도 변화가 있을 때도 보완 */
+}
+svg path:active {
+  outline: none !important;
+  box-shadow: none !important;
+  fill-opacity: 1 !important;
+}
+.poster-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*↑ 네모박스 안에 포스터를 가운데 정렬 */
+  overflow: hidden;
+}
+
+.poster-img {
+  /* 네모칸보다 충분히 작게! */
+  width: 80px;
+  height: 121px;
+  margin-bottom: 9px;
+  object-fit: cover;
+  background: #fafafc;  /* 깔끔 효과 */
+  display: block;
+}
+
+/* 필요하다면 상단/하단 별로 더 조절 */
+#festival-poster-top .poster-img { width: 80px; height: 121px; }
+#festival-poster-bottom .poster-img { width: 70px; height: 106px; margin-left: 10px; margin-top: 8px; }

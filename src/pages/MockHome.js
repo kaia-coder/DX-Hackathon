@@ -64,8 +64,8 @@ export default function MockHome() {
             src={logo}
             alt="로고"
             style={{
-              width: '270px',
-              maxWidth: '90%',
+              width: '290px',
+              maxWidth: '70%',
               height: 'auto',
             }}
           />
@@ -76,7 +76,7 @@ export default function MockHome() {
           <SearchBar />
         </div>
 
-        {/* 지도+마크 오버레이 (중앙정렬, 마크가 지도 위에 딱 겹침) */}
+        {/* 지도+마크 오버레이 */}
         <div
           style={{
             position: 'relative',
