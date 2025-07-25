@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>세종 MockHome UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 필요한 CSS -->
+  <link rel="stylesheet" href="background.css" />
+  <link rel="stylesheet" href="festival.css" />
+  <link rel="stylesheet" href="bottomnav.css" />
+</head>
+<body>
+  <!-- 전체 배경 -->
+  <div class="background">
+    <!-- 상단 여유 주고, 스크롤 되는 컨텐츠 박스 -->
+    <div class="mobile-frame">
+    <!-- 상단 고정 영역 : 예를 들어 로고/배너 등 -->
+    <div class="fixed-header" style="position:relative;">
+      <div class="top-bar"></div>
+      <!-- 상단 배너/로고/탭 등 -->
+      <img src="assets/nav/logo.svg" style="width:100%; border-radius:16px;">
+    </div>
+    <!-- 이 아래만 스크롤 영역 -->
+      <div class="content-scroll">
+        <!-- 1. 진행 중인 축제 포스터 -->
+      <div class="main-poster-list">
+        <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+        <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+      </div>
+
+      <!-- 2. '세종시 대표 축제' 섹션 -->
+      <div class="section-title">
+        <div class="title-strong">세종시 대표 축제</div>
+        <div class="title-desc">지금 바로 일정을 확인해보세요!</div>
+      </div>
+
+      <!-- 3. 전체 축제 목록  -->
+      <div class="festival-card-list">
+        <div class="festival-card">
+          <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+          <div class="card-name">축제명 예시 1</div>
+          <div class="card-period">2025.07.01 ~ 2025.07.10</div>
+        </div>
+        <div class="festival-card">
+          <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+          <div class="card-name">축제명 예시 2</div>
+          <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+        </div>
+        <!-- 더 많은 카드도 동일하게 추가 -->
+         <div class="festival-card">
+          <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+          <div class="card-name">축제명 예시 3</div>
+          <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+        </div>
+        <div class="festival-card">
+          <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+          <div class="card-name">축제명 예시 4</div>
+          <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+        </div>
+        <div class="festival-card">
+          <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+          <div class="card-name">축제명 예시 5</div>
+          <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+        </div>
+        <div class="festival-card">
+          <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+          <div class="card-name">축제명 예시 6</div>
+          <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!-- 하단 네비게이션 고정 -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active">
+      <span class="icon-box"><img src="assets/nav/festival.svg" /></span>
+      <span class="nav-label">축제 정보</span>
+    </button>
+    <button class="nav-btn">
+      <span class="icon-box"><img src="assets/nav/youtube.svg" /></span>
+      <span class="nav-label">세종시 공식 유튜브</span>
+    </button>
+    <button class="nav-btn">
+      <span class="icon-box"><img src="assets/nav/trip.svg" /></span>
+      <span class="nav-label">추천 코스</span>
+    </button>
+  </nav>
+</body>
+</html>
