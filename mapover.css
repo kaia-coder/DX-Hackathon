@@ -92,7 +92,7 @@ svg path:active {
   /* 네모칸보다 충분히 작게! */
   width: 80px;
   height: 121px;
-  margin-bottom: 9px;
+  margin-bottom: 10px;
   object-fit: cover;
   background: #fafafc;  /* 깔끔 효과 */
   display: block;
