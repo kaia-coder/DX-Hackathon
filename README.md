@@ -1,5 +1,2 @@
 # DX-Hackathon
-
-7/21 저녁까지
-효진 : 피그마 디자인
-하영 : 코드 구성
+🔥 Keep going
