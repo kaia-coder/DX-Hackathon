@@ -2,53 +2,34 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>세종 MockHome UI</title>
+  <title>조치원 복숭아 축제 정보</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- 필요한 CSS 파일들 -->
   <link rel="stylesheet" href="background.css" />
-  <link rel="stylesheet" href="festival.css" />
+  <link rel="stylesheet" href="festival.info.css" />
   <link rel="stylesheet" href="bottomnav.css" />
 </head>
 <body>
   <div class="background">
     <div class="mobile-frame">
-      <!-- 상단 고정 영역 (로고 등) -->
-      <div class="fixed-header" style="position:relative;">
-        <div class="top-bar"></div>
-        <img src="assets/nav/logo.svg" style="width:100%; border-radius:16px;">
+      <!-- 이 부분만 내부적으로 스크롤 -->
+      <div class="festival-info">
+        <img class="festival-poster" src="assets/nav/test.svg" alt="포스터">
+        <div class="festival-title">조치원 복숭아 축제</div>
+        <div class="festival-detail-card">
+          <dl>
+            <dt>축제일정</dt>
+            <dd>2025.07.25 ~ 2025.07.27</dd>
+            <dt>축제 장소</dt>
+            <dd>세종시민운동장<br>세종특별자치시 조치원읍 대첩로 98(신흥리 370-2)</dd>
+            <dt>공식 홈페이지</dt>
+            <dd><a href="http://www.jcwpeach.kr/" target="_blank">www.jcwpeach.kr</a></dd>
+            <dt>입장료</dt>
+            <dd>무료</dd>
+          </dl>
+        </div>
       </div>
-      <!-- 아래 부분 스크롤 영역 -->
-      <div class="content-scroll">
-        <!-- 1. 캐러셀 메인 포스터 -->
-        <div class="main-poster-carousel">
-          <div class="carousel-track">
-            <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
-            <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
-          </div>
-        </div>
-        <!-- 2. 섹션 타이틀 -->
-        <div class="section-title">
-          <div class="title-strong">세종시 대표 축제</div>
-          <div class="title-desc">지금 바로 일정을 확인해보세요!</div>
-        </div>
-        <!-- 3. 축제 카드 목록 (2열 그리드) -->
-        <div class="festival-card-list">
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 1</div>
-            <div class="card-period">2025.07.01 ~ 2025.07.10</div>
-          </div>
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 2</div>
-            <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-          </div>
-          <!-- 더 많은 카드도 추가 가능 -->
-        </div>
-      </div><!-- .content-scroll -->
-    </div><!-- .mobile-frame -->
+    </div>
   </div>
-  <!-- 하단 네비게이션 고정 -->
   <nav class="bottom-nav">
     <button class="nav-btn active">
       <span class="icon-box"><img src="assets/nav/festival.svg" /></span>
@@ -63,62 +44,5 @@
       <span class="nav-label">추천 코스</span>
     </button>
   </nav>
-
-  <!-- 캐러셀 스와이프용 JS -->
-  <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const track = document.querySelector('.carousel-track');
-    const posters = document.querySelectorAll('.main-poster');
-    if (!track || posters.length === 0) return;
-
-    let current = 0, startX = 0, deltaX = 0, dragging = false;
-    function updateCarousel() {
-      track.style.transform = `translateX(${-current * 100}%)`;
-    }
-
-    // 모바일 터치
-    track.addEventListener('touchstart', e => {
-      if (e.touches.length !== 1) return;
-      startX = e.touches[0].clientX;
-      dragging = true;
-    });
-    track.addEventListener('touchmove', e => {
-      if (!dragging) return;
-      deltaX = e.touches[0].clientX - startX;
-    });
-    track.addEventListener('touchend', e => {
-      if (!dragging) return;
-      if (deltaX < -50 && current < posters.length - 1) current++;
-      else if (deltaX > 50 && current > 0) current--;
-      updateCarousel();
-      dragging = false;
-      deltaX = 0;
-    });
-
-    // 데스크톱 마우스
-    track.addEventListener('mousedown', e => {
-      startX = e.clientX;
-      dragging = true;
-    });
-    track.addEventListener('mousemove', e => {
-      if (!dragging) return;
-      deltaX = e.clientX - startX;
-    });
-    track.addEventListener('mouseup', e => {
-      if (!dragging) return;
-      if (deltaX < -50 && current < posters.length - 1) current++;
-      else if (deltaX > 50 && current > 0) current--;
-      updateCarousel();
-      dragging = false;
-      deltaX = 0;
-    });
-    track.addEventListener('mouseleave', e => {
-      if (!dragging) return;
-      dragging = false; deltaX = 0;
-    });
-
-    updateCarousel();
-  });
-  </script>
 </body>
 </html>

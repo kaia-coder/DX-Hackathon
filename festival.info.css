@@ -1,138 +1,125 @@
-html, body, .background, .mobile-frame, .content-scroll, .main-poster-carousel, .carousel-track {
-  overflow-x: hidden !important;
+html, body, .background {
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.background {
+  background: #EAF6FA;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
 }
 
+/* 모바일 프레임, 네모 내부만 스크롤 */
 .mobile-frame {
   position: relative;
   margin: 60px 0 0 0;
-  width: 100vw;
-  height: calc(100vh - 54px);
+  width: 100%;
+  height: calc(100vh - 60px);
   background: #fff;
   border-radius: 60px 60px 32px 32px;
   border: 1px solid #D3DEE1;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 440px;
 }
 
-.top-bar {
-  width: 70px;
-  height: 5px;
-  background: #CCCCCC;
-  border-radius: 4px;
-  position: absolute;
-  top: 8px;   
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* 상단 고정 영역 */
-.fixed-header {
-  position: relative;
-  z-index: 1;
-  background: #fff;
-  height: 80px;
-  padding: 0 16px;
+/* 이 부분만 네모 안 스크롤*/
+.festival-info {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 80px;     /* 네비게이션 바에 가리지 않도록 여백 */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
+  border-radius: 60px 60px 32px 32px;
 }
 
 /* 아래 내용만 스크롤 */
 .content-scroll {
   width: 100%;
   overflow-y: auto;
-  padding-bottom: 80px; /* 하단 네비게이션에 내용이 가리지 않도록 */
+  /* 좌우 padding 필요시만 px로 */
 }
 
-/* 캐러셀 슬라이더 */
-.main-poster-carousel {
-  width: 100% !important;
-  overflow: hidden;
-  position: relative;
+.content-scroll::-webkit-scrollbar {
+  width: 8px;
 }
-.carousel-track {
-  display: flex;
-  width: 100% !important;
-  min-width: 0 !important;
-  transition: transform 0.3s;
+.content-scroll::-webkit-scrollbar-thumb {
+  background: #e0e9ef;
+  border-radius: 20px;
 }
-.main-poster {
-  width: 100% !important;
-  flex: 0 0 100% !important;
-  min-width: 0 !important;
-  aspect-ratio: 16/7;
+
+/* --- 상세 레이아웃/스타일 --- */
+.festival-poster {
+  width: 100%;
+  max-width: 440px;
+  min-height: 170px;
+  aspect-ratio: 335/180;
   object-fit: cover;
-  border-radius: 0;
+  border-radius: 60px 60px 0 0;       
+  display: block;
+  background: #f4f4f4;
 }
 
-/* 섹션 제목 */
-.section-title {
-  margin: 18px 10px 8px 10px;
-  padding-left: 0;
+.festival-title {
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+  margin: 55px 0 67px 0;
+  letter-spacing: -0.5px;
 }
-.title-strong {
-  font-size: 21px;
-  font-weight: 700;
-  color: #111;
-  text-align: left;
+.festival-detail-card {
+  width: 90%;
+  background: #F7FBFC;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(80,140,180,0.07);
+  border: 1.5px solid #A3D9F8;
+  margin: 0 auto 10px auto;
+  box-sizing: border-box;
+  padding: 28px 16px 20px 16px;
+}
+.festival-detail-card dl {
+  margin: 0;
+  padding: 0;
+}
+.festival-detail-card dt {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1565A0;
+  margin-top: 12px;
   margin-bottom: 2px;
 }
-.title-desc {
-  font-size: 14px;
+.festival-detail-card dd {
+  font-size: 15px;
   font-weight: 400;
-  color: #CCCCCC;
-  text-align: left;
-  margin: 0 0 8px 0;
+  color: #32374A;
+  margin: 0 0 7px 0;
+  line-height: 1.6;
+}
+.festival-detail-card a {
+  color: #469BCB;
+  text-decoration: underline;
 }
 
-/* 2열 그리드 리스트 */
-.festival-card-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 12px;
-  width: 100% !important;
-  margin: 0;
-  padding: 0 10px 16px 10px;
-}
-.festival-card {
-  background: #F7FBFC;
-  border: 1.5px solid #66BDE3;
-  border-radius: 16px;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 0 12px 0;
-  width: 100% !important;
-  min-width: 0 !important;
-  margin: 0 auto;
-}
-
-.card-poster {
-  width: 100%;
-  aspect-ratio: 3/2;
-  object-fit: cover;
-  border-bottom: 1px solid #EAF6FA;
-}
-.card-name {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 10px 0 2px 0;
-  color: #064A73;
-  text-align: center;
-}
-.card-period {
-  font-size: 12px;
-  color: #444;
-  text-align: center;
-}
-
-/* 반응형 */
-@media (max-width: 420px) {
-  .mobile-frame {
-    width: 100vw;
-    border-radius: 18px;
+/* 작은 화면 반응형 */
+@media (max-width: 480px) {
+  .mobile-frame, .festival-poster {
+    max-width: 100vw;
+    border-radius: 7vw 7vw 6vw 6vw;
+  }
+  .festival-detail-card {
+    width: 96%;
+    border-radius: 16px;
+    padding: 18px 5vw 16px 5vw;
   }
 }
