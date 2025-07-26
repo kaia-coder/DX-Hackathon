@@ -1,4 +1,7 @@
-/* .mobile-frame는 동일하게 */
+html, body, .background, .mobile-frame, .content-scroll, .main-poster-carousel, .carousel-track {
+  overflow-x: hidden !important;
+}
+
 .mobile-frame {
   position: relative;
   margin: 60px 0 0 0;
@@ -25,46 +28,24 @@
 
 /* 상단 고정 영역 */
 .fixed-header {
-  position: relative;      /* relative로 하면 그대로 스태틱 flowing */
+  position: relative;
   z-index: 1;
-  background: #fff;   
+  background: #fff;
   height: 80px;
   padding: 0 16px;
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  /* border-bottom: 1px solid #eee; 필요시 */
 }
 
 /* 아래 내용만 스크롤 */
 .content-scroll {
   width: 100%;
   overflow-y: auto;
-  /* 좌우 padding 필요시만 px로 */
+  padding-bottom: 80px; /* 하단 네비게이션에 내용이 가리지 않도록 */
 }
 
-/* 실제 스크롤 영역의 시작을 고정 영역 아래로! */
-.content-scroll {
-  /* 상단 고정 영역 높이만큼 margin/padding을 주면 불필요,
-   flex column 방향에서 .fixed-header가 위에 있으니 자연스럽게 아래에 위치함 */
-}
-
-.content-scroll::-webkit-scrollbar {
-  width: 8px;
-}
-.content-scroll::-webkit-scrollbar-thumb {
-  background: #e0e9ef;
-  border-radius: 20px;
-}
-
-/* 반응형 */
-@media (max-width: 420px) {
-  .mobile-frame {
-    width: 100vw;
-    border-radius: 18px;
-  }
-}
-
+/* 캐러셀 슬라이더 */
 .main-poster-carousel {
   width: 100% !important;
   overflow: hidden;
@@ -72,18 +53,20 @@
 }
 .carousel-track {
   display: flex;
+  width: 100% !important;
+  min-width: 0 !important;
   transition: transform 0.3s;
-  will-change: transform;
 }
 .main-poster {
   width: 100% !important;
-  flex: 0 0 100%;
+  flex: 0 0 100% !important;
+  min-width: 0 !important;
   aspect-ratio: 16/7;
   object-fit: cover;
   border-radius: 0;
 }
 
-/* 제목(섹션 헤드) */
+/* 섹션 제목 */
 .section-title {
   margin: 18px 10px 8px 10px;
   padding-left: 0;
@@ -103,18 +86,18 @@
   margin: 0 0 8px 0;
 }
 
-/* 축제 카드 2열 그리드 */
+/* 2열 그리드 리스트 */
 .festival-card-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 12px;         /* 행, 열 간격 */
-  width: 100%;
+  gap: 16px 12px;
+  width: 100% !important;
   margin: 0;
   padding: 0 10px 16px 10px;
 }
 .festival-card {
   background: #F7FBFC;
-  border: 1.5px solid #66BDE3;  /* 연한 파란 테두리 */
+  border: 1.5px solid #66BDE3;
   border-radius: 16px;
   box-sizing: border-box;
   overflow: hidden;
@@ -122,7 +105,8 @@
   flex-direction: column;
   align-items: center;
   padding: 0 0 12px 0;
-  width: 100%;       /* 카드 좌우 여백 줄이려면 100%로 */
+  width: 100% !important;
+  min-width: 0 !important;
   margin: 0 auto;
 }
 
@@ -145,6 +129,10 @@
   text-align: center;
 }
 
-html, body, .background {
-  overflow-x: hidden !important;
+/* 반응형 */
+@media (max-width: 420px) {
+  .mobile-frame {
+    width: 100vw;
+    border-radius: 18px;
+  }
 }

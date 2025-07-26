@@ -23,9 +23,12 @@
     <!-- 이 아래만 스크롤 영역 -->
       <div class="content-scroll">
         <!-- 1. 진행 중인 축제 포스터 -->
-      <div class="main-poster-list">
-        <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
-        <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+      <div class="main-poster-carousel">
+        <div class="carousel-track">
+          <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+          <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+          <!-- (진행중인 축제 개수만큼 반복 -- JS로 동적 생성도 OK) -->
+        </div>
       </div>
 
       <!-- 2. '세종시 대표 축제' 섹션 -->
@@ -87,5 +90,60 @@
       <span class="nav-label">추천 코스</span>
     </button>
   </nav>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.carousel-track');
+  const posters = document.querySelectorAll('.main-poster');
+  let current = 0, startX = 0, deltaX = 0, dragging = false;
+
+  function updateCarousel() {
+    track.style.transform = `translateX(${-current * 100}vw)`;
+  }
+
+  // 터치 스와이프
+  track.addEventListener('touchstart', e => {
+    if (e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    dragging = true;
+  });
+  track.addEventListener('touchmove', e => {
+    if (!dragging || e.touches.length !== 1) return;
+    deltaX = e.touches[0].clientX - startX;
+  });
+  track.addEventListener('touchend', e => {
+    if (!dragging) return;
+    if (deltaX < -50 && current < posters.length - 1) current++;
+    else if (deltaX > 50 && current > 0) current--;
+    updateCarousel();
+    dragging = false;
+    deltaX = 0;
+  });
+
+  // 마우스 드래그 (PC)
+  track.addEventListener('mousedown', e => {
+    startX = e.clientX;
+    dragging = true;
+  });
+  track.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    deltaX = e.clientX - startX;
+  });
+  track.addEventListener('mouseup', e => {
+    if (!dragging) return;
+    if (deltaX < -50 && current < posters.length - 1) current++;
+    else if (deltaX > 50 && current > 0) current--;
+    updateCarousel();
+    dragging = false;
+    deltaX = 0;
+  });
+  track.addEventListener('mouseleave', e => {
+    if (!dragging) return;
+    dragging = false;
+    deltaX = 0;
+  });
+
+  updateCarousel();
+});
+</script>
 </body>
 </html>
