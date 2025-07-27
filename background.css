@@ -1,4 +1,5 @@
 /* src/styles/common/background.css */
+/* background.css */
 html, body {
   height: 100%;
   margin: 0;
@@ -21,3 +22,4 @@ html, body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+

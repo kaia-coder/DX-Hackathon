@@ -1,0 +1,149 @@
+/* festival.css */
+.mobile-frame {
+  position: relative;
+  margin: 60px 0 0 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: #fff;
+  border-radius: 60px 60px 32px 32px;
+  border: 1px solid #D3DEE1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 440px;
+}
+
+.top-bar {
+  width: 70px;
+  height: 5px;
+  background: #CCCCCC;
+  border-radius: 4px;
+  position: absolute;
+  top: 8px;   
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 상단 고정 영역 */
+.fixed-header {
+  position: relative;      /* relative로 하면 그대로 스태틱 flowing */
+  z-index: 1;
+  background: #fff;   
+  height: 80px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* 아래 내용만 스크롤 */
+.content-scroll {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 90px;
+}
+
+.content-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.content-scroll::-webkit-scrollbar-thumb {
+  background: #e0e9ef;
+  border-radius: 20px;
+}
+
+/* 반응형 */
+@media (max-width: 420px) {
+  .mobile-frame {
+    width: 100vw;
+    border-radius: 18px;
+  }
+}
+
+.main-poster-carousel {
+  width: 100% !important;
+  overflow: hidden;
+  position: relative;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s;
+  will-change: transform;
+}
+.main-poster {
+  width: 100% !important;
+  flex: 0 0 100%;
+  aspect-ratio: 16/7;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* 섹션 헤드 */
+.section-title {
+  margin: 18px 10px 8px 10px;
+  padding-left: 0;
+}
+.title-strong {
+  font-size: 21px;
+  font-weight: 700;
+  color: #111;
+  text-align: left;
+  margin-bottom: 2px;
+}
+.title-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-align: left;
+  margin: 0 0 8px 0;
+}
+
+/* 축제 카드 2열 그리드 */
+.festival-card-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 12px;
+  max-width: 420px;   
+  width: 100%;
+  margin: 0 auto;      
+  padding: 0 10px 16px 10px;
+  box-sizing: border-box;
+}
+
+.festival-card {
+  background: #F7FBFC;
+  border: 1.5px solid #66BDE3;  
+  border-radius: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 12px 0;
+  width: 100%;   
+  margin: 0 auto;
+}
+
+.card-poster {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  border-bottom: 1px solid #EAF6FA;
+}
+.card-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 10px 0 2px 0;
+  color: #064A73;
+  text-align: center;
+}
+.card-period {
+  font-size: 12px;
+  color: #444;
+  text-align: center;
+}
+
+html, body, .background {
+  overflow-x: hidden !important;
+}
