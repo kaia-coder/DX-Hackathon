@@ -4,9 +4,18 @@
 const isDevelopment =
   window.location.hostname === 'localhost' ||
   window.location.hostname === '127.0.0.1';
+
+// CORS 프록시 옵션들
+const PROXY_OPTIONS = [
+  'https://cors-anywhere.herokuapp.com/',
+  'https://api.allorigins.win/raw?url=',
+  'https://corsproxy.io/?',
+  'https://thingproxy.freeboard.io/fetch/',
+];
+
 const API_BASE_URL = isDevelopment
   ? 'http://localhost:8000/api'
-  : 'https://sejong-festival-api.onrender.com/api';
+  : `${PROXY_OPTIONS[0]}https://sejong-festival-api.onrender.com/api`;
 
 // GitHub Pages 경로 설정
 const isGitHubPages = window.location.hostname.includes('github.io');
@@ -29,11 +38,29 @@ const festivalPosters = [
 ];
 
 // API 호출 함수들
+async function fetchWithProxy(url, proxyIndex = 0) {
+  if (proxyIndex >= PROXY_OPTIONS.length) {
+    throw new Error('모든 프록시 서비스 실패');
+  }
+
+  try {
+    const proxyUrl = `${PROXY_OPTIONS[proxyIndex]}${url}`;
+    console.log(`🔄 프록시 ${proxyIndex + 1} 시도: ${proxyUrl}`);
+    const response = await fetch(proxyUrl);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    console.log(`❌ 프록시 ${proxyIndex + 1} 실패: ${error.message}`);
+    return fetchWithProxy(url, proxyIndex + 1);
+  }
+}
+
 async function fetchFestivals() {
   try {
     console.log('🔄 축제 데이터 로딩 중...');
-    const response = await fetch(`${API_BASE_URL}/festivals`);
-    const festivals = await response.json();
+    const festivals = await fetchWithProxy(
+      'https://sejong-festival-api.onrender.com/api/festivals'
+    );
     console.log('✅ 축제 데이터 로드 완료:', festivals);
     return festivals;
   } catch (error) {
@@ -45,8 +72,9 @@ async function fetchFestivals() {
 async function fetchPlaces() {
   try {
     console.log('🔄 관광지 데이터 로딩 중...');
-    const response = await fetch(`${API_BASE_URL}/places`);
-    const places = await response.json();
+    const places = await fetchWithProxy(
+      'https://sejong-festival-api.onrender.com/api/places'
+    );
     console.log('✅ 관광지 데이터 로드 완료:', places);
     return places;
   } catch (error) {
@@ -58,10 +86,11 @@ async function fetchPlaces() {
 async function searchAPI(query) {
   try {
     console.log('🔍 검색 중:', query);
-    const response = await fetch(
-      `${API_BASE_URL}/search?q=${encodeURIComponent(query)}`
+    const data = await fetchWithProxy(
+      `https://sejong-festival-api.onrender.com/api/search?q=${encodeURIComponent(
+        query
+      )}`
     );
-    const data = await response.json();
     console.log('✅ 검색 결과:', data);
     return data;
   } catch (error) {
