@@ -1,0 +1,166 @@
+/* 전체 배경 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Apple SD Gothic Neo', sans-serif;
+  background-color: #EAF6FA;
+}
+
+/* 앱 전체 wrapper */
+.app-background {
+  max-width: 420px;
+  width: 100vw;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  background-color: #ffffff;
+}
+
+/* 상단 흰 카드 */
+.white-card {
+  background-color: #ffffff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding: 20px 0;
+  margin: 0;
+  border-bottom: none;
+}
+
+/* 회색 구분선 바 */
+.divider-line {
+  height: 8px;
+  width: 100%;
+  background-color: #CCCCCC;
+  margin: 0;
+}
+
+/* 헤더 내부 정렬 */
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px;
+}
+
+/* 로고 이미지 */
+.logo-img {
+  width: 180px;
+  margin-bottom: 10px;
+}
+
+/* 설명 텍스트 */
+.description-text {
+  text-align: left;
+  width: 100%;
+  padding: 0;
+}
+
+.description-text .main-desc {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.description-text .sub-desc {
+  font-size: 11px;
+  color: #A6A6A6;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.2;
+}
+
+/* 코스 리스트 wrapper */
+.course-list {
+  margin: 0;
+  background-color: #ffffff;
+}
+
+/* 이미지 사이 파란 띠 */
+.section-blue {
+  height: 13px;
+  background-color: #EAF6FA;
+}
+
+/* 이미지 사이 흰색 띠 */
+.section-white {
+  height: 8px;
+  background-color: #ffffff;
+}
+/* 코스 카드 */
+.course-card {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+/* 이미지 */
+.course-card img {
+  width: 100%;
+  display: block;
+  border: none;
+  border-radius: 0;               /* 혹시 있을 둥근 모서리 제거 */
+  box-shadow: none;              /* 혹시 있을 그림자 제거 */
+  background: none;
+}
+
+/* 이미지 위 텍스트 */
+.card-text {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  background:none;
+  color: #fff;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+/* 텍스트: 제목 */
+.card-text h2 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* 텍스트: 설명 */
+.card-text p {
+  font-size: 11px;
+  margin: 4px 0 0;
+  color: #E0E0E0;
+}
+
+/* 하단 네비게이션 바 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  width: 100vw;   /* ← 420px 고정 제거 */
+  background-color: #ffffff;
+  border-top: 1px solid #CCCCCC;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.bottom-nav a {
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+  font-size: 12px;
+}
+
+.bottom-nav img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
