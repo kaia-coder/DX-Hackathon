@@ -24,15 +24,9 @@ window.addEventListener('DOMContentLoaded', () => {
     );
     path.style.cursor = 'pointer';
     path.addEventListener('click', () => {
-      window.location.href = `/region-detail.html?region=${encodeURIComponent(path.id)}`;
+      window.location.href = `/map.html?region=${encodeURIComponent(path.id)}`;
     });
-    path.setAttribute('tabindex', 0);
-    path.setAttribute('role', 'button');
-    path.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        window.location.href = `/region-detail.html?region=${encodeURIComponent(path.id)}`;
-      }
-    });
+    
     path.onselectstart = () => false;
     path.onmousedown = e => e.preventDefault();
   });
@@ -54,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(data => {
           if (data.type === "region" && data.key) {
-            window.location.href = `/region-detail.html?region=${encodeURIComponent(data.key)}`;
+            window.location.href = `/map.html?region=${encodeURIComponent(data.key)}`;
           } else if ((data.type === "cafe" || data.type === "food") && data.key) {
             window.location.href = `/map-list.html?type=${encodeURIComponent(data.type)}&name=${encodeURIComponent(data.key)}`;
           } else {
