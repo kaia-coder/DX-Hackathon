@@ -4,92 +4,91 @@
   <meta charset="UTF-8" />
   <title>세종 MockHome UI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- 필요한 CSS -->
   <link rel="stylesheet" href="background.css" />
   <link rel="stylesheet" href="festival.css" />
   <link rel="stylesheet" href="bottomnav.css" />
 </head>
 <body>
-  <!-- 전체 배경 -->
   <div class="background">
-    <!-- 상단 여유 주고, 스크롤 되는 컨텐츠 박스 -->
     <div class="mobile-frame">
-    <!-- 상단 고정 영역 : 예를 들어 로고/배너 등 -->
-    <div class="fixed-header" style="position:relative;">
-      <div class="close-button" onclick="window.location.href='index.html'">
-        <img src="assets/nav/close.svg" alt="닫기" />
+      <!-- 상단 고정 영역 -->
+      <div class="fixed-header" style="position:relative;">
+        <div class="top-bar"></div>
+        <div class="close-button" onclick="window.location.href='index.html'">
+          <img src="assets/nav/close.svg" alt="닫기 버튼" />
+        </div>  
       </div>
-      <div class="top-bar"></div>
-      <!-- 상단 배너/로고/탭 등 -->
-      <img src="assets/nav/logo.svg" style="width:66%; border-radius:16px; position:relative; left:41px;">
-    </div>
-    <!-- 이 아래만 스크롤 영역 -->
+
+      <!-- 로고 -->
+      <img src="assets/nav/logo.svg" style="width:66%; border-radius:16px; position:relative; left:41px; top: 34px;">
+
+      <!-- ✅ 스크롤 되는 콘텐츠 -->
       <div class="content-scroll">
         <!-- 1. 진행 중인 축제 포스터 -->
-      <div class="main-poster-carousel">
-        <div class="carousel-track">
-          <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
-          <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
-          <!-- (진행중인 축제 개수만큼 반복) -->
+        <div class="main-poster-carousel">
+          <div class="carousel-track">
+            <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+            <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+          </div>
         </div>
-      </div>
 
-      <!-- 2. '세종시 대표 축제' 섹션 -->
-      <div class="section-title">
-        <div class="title-strong">세종시 대표 축제</div>
-        <div class="title-desc">지금 바로 일정을 확인해보세요!</div>
-      </div>
+        <!-- 2. 세종시 대표 축제 섹션 -->
+        <div class="section-title">
+          <div class="title-strong">세종시 대표 축제</div>
+          <div class="title-desc">지금 바로 일정을 확인해보세요!</div>
+        </div>
 
-      <!-- 3. 전체 축제 목록 -->
-      <div class="festival-card-list">
-        <a href="festival.info.html?id=1" style="text-decoration:none; color:inherit;">
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 1</div>
-            <div class="card-period">2025.07.01 ~ 2025.07.10</div>
-          </div>
-        </a>
-        <a href="festival.info.html?id=2" style="text-decoration:none; color:inherit;">
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 2</div>
-            <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-          </div>
-        </a>
-        <a href="festival.info.html?id=3" style="text-decoration:none; color:inherit;">
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 3</div>
-            <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-          </div>
-        </a>
-        <a href="festival.info.html?id=4" style="text-decoration:none; color:inherit;">
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 4</div>
-            <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-          </div>
-        </a>
-        <a href="festival.info.html?id=5" style="text-decoration:none; color:inherit;">
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 5</div>
-            <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-          </div>
-        </a>
-        <a href="festival.info.html?id=6" style="text-decoration:none; color:inherit;">
-          <div class="festival-card">
-            <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-            <div class="card-name">축제명 예시 6</div>
-            <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-          </div>
-        </a>
-      </div>
+        <!-- 3. 전체 축제 목록 -->
+        <div class="festival-card-list">
+          <a href="festival.info.html?id=1" style="text-decoration:none; color:inherit;">
+            <div class="festival-card">
+              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+              <div class="card-name">축제명 예시 1</div>
+              <div class="card-period">2025.07.01 ~ 2025.07.10</div>
+            </div>
+          </a>
+          <a href="festival.info.html?id=2" style="text-decoration:none; color:inherit;">
+            <div class="festival-card">
+              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+              <div class="card-name">축제명 예시 2</div>
+              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+            </div>
+          </a>
+          <a href="festival.info.html?id=3" style="text-decoration:none; color:inherit;">
+            <div class="festival-card">
+              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+              <div class="card-name">축제명 예시 3</div>
+              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+            </div>
+          </a>
+          <a href="festival.info.html?id=4" style="text-decoration:none; color:inherit;">
+            <div class="festival-card">
+              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+              <div class="card-name">축제명 예시 4</div>
+              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+            </div>
+          </a>
+          <a href="festival.info.html?id=5" style="text-decoration:none; color:inherit;">
+            <div class="festival-card">
+              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+              <div class="card-name">축제명 예시 5</div>
+              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+            </div>
+          </a>
+          <a href="festival.info.html?id=6" style="text-decoration:none; color:inherit;">
+            <div class="festival-card">
+              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
+              <div class="card-name">축제명 예시 6</div>
+              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+            </div>
+          </a>
+        </div>
+      </div> <!-- ✅ content-scroll 닫기 -->
 
-    </div>
-  </div>
-</div>
-  <!-- 하단 네비게이션 고정 -->
+    </div> <!-- ✅ mobile-frame 닫기 -->
+  </div> <!-- background 닫기 -->
+
+  <!-- 하단 네비게이션 -->
   <nav class="bottom-nav">
     <a class="nav-btn active" href="/festival.html">
       <span class="icon-box"><img src="assets/nav/festival.svg" alt="축제" /></span>
@@ -104,60 +103,61 @@
       <span class="nav-label">추천 코스</span>
     </a>
   </nav>
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  const track = document.querySelector('.carousel-track');
-  const posters = document.querySelectorAll('.main-poster');
-  let current = 0, startX = 0, deltaX = 0, dragging = false;
 
-  function updateCarousel() {
-    track.style.transform = `translateX(${-current * 100}vw)`;
-  }
+  <!-- 캐러셀 JS -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const track = document.querySelector('.carousel-track');
+      const posters = document.querySelectorAll('.main-poster');
+      let current = 0, startX = 0, deltaX = 0, dragging = false;
 
-  // 터치 스와이프
-  track.addEventListener('touchstart', e => {
-    if (e.touches.length !== 1) return;
-    startX = e.touches[0].clientX;
-    dragging = true;
-  });
-  track.addEventListener('touchmove', e => {
-    if (!dragging || e.touches.length !== 1) return;
-    deltaX = e.touches[0].clientX - startX;
-  });
-  track.addEventListener('touchend', e => {
-    if (!dragging) return;
-    if (deltaX < -50 && current < posters.length - 1) current++;
-    else if (deltaX > 50 && current > 0) current--;
-    updateCarousel();
-    dragging = false;
-    deltaX = 0;
-  });
+      function updateCarousel() {
+        track.style.transform = `translateX(${-current * 100}vw)`;
+      }
 
-  // 마우스 드래그 (PC)
-  track.addEventListener('mousedown', e => {
-    startX = e.clientX;
-    dragging = true;
-  });
-  track.addEventListener('mousemove', e => {
-    if (!dragging) return;
-    deltaX = e.clientX - startX;
-  });
-  track.addEventListener('mouseup', e => {
-    if (!dragging) return;
-    if (deltaX < -50 && current < posters.length - 1) current++;
-    else if (deltaX > 50 && current > 0) current--;
-    updateCarousel();
-    dragging = false;
-    deltaX = 0;
-  });
-  track.addEventListener('mouseleave', e => {
-    if (!dragging) return;
-    dragging = false;
-    deltaX = 0;
-  });
+      track.addEventListener('touchstart', e => {
+        if (e.touches.length !== 1) return;
+        startX = e.touches[0].clientX;
+        dragging = true;
+      });
+      track.addEventListener('touchmove', e => {
+        if (!dragging || e.touches.length !== 1) return;
+        deltaX = e.touches[0].clientX - startX;
+      });
+      track.addEventListener('touchend', e => {
+        if (!dragging) return;
+        if (deltaX < -50 && current < posters.length - 1) current++;
+        else if (deltaX > 50 && current > 0) current--;
+        updateCarousel();
+        dragging = false;
+        deltaX = 0;
+      });
 
-  updateCarousel();
-});
-</script>
+      track.addEventListener('mousedown', e => {
+        startX = e.clientX;
+        dragging = true;
+      });
+      track.addEventListener('mousemove', e => {
+        if (!dragging) return;
+        deltaX = e.clientX - startX;
+      });
+      track.addEventListener('mouseup', e => {
+        if (!dragging) return;
+        if (deltaX < -50 && current < posters.length - 1) current++;
+        else if (deltaX > 50 && current > 0) current--;
+        updateCarousel();
+        dragging = false;
+        deltaX = 0;
+      });
+
+      track.addEventListener('mouseleave', e => {
+        if (!dragging) return;
+        dragging = false;
+        deltaX = 0;
+      });
+
+      updateCarousel();
+    });
+  </script>
 </body>
 </html>

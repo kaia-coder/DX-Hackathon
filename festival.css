@@ -24,6 +24,24 @@
   transform: translateX(-50%);
 }
 
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+.close-button img {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
 /* 상단 고정 영역 */
 .fixed-header {
   position: relative;      /* relative로 하면 그대로 스태틱 flowing */
@@ -34,6 +52,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  z-index: 9999;
 }
 
 /* 아래 내용만 스크롤 */
