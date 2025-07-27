@@ -8,6 +8,10 @@ const API_BASE_URL = isDevelopment
   ? 'http://localhost:8000/api'
   : 'https://sejong-festival-api.onrender.com/api';
 
+// GitHub Pages 경로 설정
+const isGitHubPages = window.location.hostname.includes('github.io');
+const basePath = isGitHubPages ? '/DX-Hackathon' : '';
+
 const FESTIVAL_REGION_IDS = ['jochiwon', 'center'];
 
 const BASE_COLOR = '#B7DDF2',
@@ -143,8 +147,6 @@ window.addEventListener('DOMContentLoaded', () => {
       console.log(`${path.id} 지역 데이터:`, { festivals, places });
 
       // GitHub Pages 경로 수정
-      const isGitHubPages = window.location.hostname.includes('github.io');
-      const basePath = isGitHubPages ? '/DX-Hackathon' : '';
       window.location.href = `${basePath}/map.html?region=${encodeURIComponent(
         path.id
       )}`;
@@ -170,10 +172,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
       const data = await searchAPI(query);
       if (data) {
-        // GitHub Pages 경로 수정
-        const isGitHubPages = window.location.hostname.includes('github.io');
-        const basePath = isGitHubPages ? '/DX-Hackathon' : '';
-
         if (data.type === 'region' && data.key) {
           window.location.href = `${basePath}/map.html?region=${encodeURIComponent(
             data.key
