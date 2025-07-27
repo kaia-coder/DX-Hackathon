@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>조치원읍 지도</title>
+  <title>지도 정보</title>
   <link rel="stylesheet" href="background.css" />
   <link rel="stylesheet" href="searchbar.css" />
   <link rel="stylesheet" href="category.css" />
   <link rel="stylesheet" href="map.area.css" />
   <link rel="stylesheet" href="bottomnav.css" />
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_API_KEY"></script>
 </head>
 <body>
   <div class="background">
@@ -18,14 +19,14 @@
       <input 
         class="search-input" 
         type="text" 
-        placeholder="조치원읍" 
+        placeholder="검색색" 
         id="main-search-input" 
-        value="조치원읍" 
+        value="검색" 
       />
     </div>
     <!-- 카테고리 바 -->
     <div class="category-bar">
-      <button class="category-btn active">전체</button>
+      <button class="category-btn">전체</button>
       <button class="category-btn">맛집</button>
       <button class="category-btn">카페</button>
       <button class="category-btn">공원/휴식</button>
@@ -39,11 +40,11 @@
     </div>
     <!-- 하단 네비게이션 -->
     <nav class="bottom-nav">
-      <a class="nav-btn" href="/festival.html">
+      <a class="nav-btn" href="festival.html">
         <span class="icon-box"><img src="assets/nav/festival.svg" alt="축제" /></span>
         <span class="nav-label">축제 정보</span>
       </a>
-      <a class="nav-btn" href="https://www.youtube.com/@sejongcity">
+      <a class="nav-btn" href="https://www.youtube.com/sejongcity">
         <span class="icon-box"><img src="assets/nav/youtube.svg" alt="유튜브" /></span>
         <span class="nav-label">세종 공식 유튜브</span>
       </a>

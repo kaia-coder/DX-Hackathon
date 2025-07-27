@@ -19,7 +19,13 @@
 }
 .category-btn.active,
 .category-btn:focus {
-  background: #008AD5;
+  background: #FFEDB5;
+  color: #000000;
+  border-color: #D3DEE1;
+}
+.category-btn.active {
+  background: #257199;
   color: #fff;
-  border-color: #008AD5;
+  font-weight: bold;
+  /* 원하는 스타일 추가 */
 }
