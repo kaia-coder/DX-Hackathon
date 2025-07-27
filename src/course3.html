@@ -1,108 +1,153 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3. 조용히 머무르기 좋은 코스</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="course2.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3. 조용히 머무르기 좋은 코스</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="course2.css" />
+  </head>
+  <body>
+    <div class="course-page-wrapper">
+      <!-- 상단 로고 -->
+      <header class="course-header">
+        <img src="assets/logo_semo.png" alt="세모 로고" class="course-logo" />
+      </header>
 
-  <div class="course-page-wrapper">
-    <!-- 상단 로고 -->
-    <header class="course-header">
-      <img src="assets/logo_semo.png" alt="세모 로고" class="course-logo" />
-    </header>
+      <!-- 코스 대표 이미지 -->
+      <div class="section-blue"></div>
+      <div class="course-card">
+        <section class="course-image-section">
+          <img
+            src="assets/trip1.png"
+            alt="하루 종일 놀기 좋은 코스"
+            class="course-main-image"
+          />
+          <div class="card-text">
+            <h2>3. 조용히 머무르기 좋은 코스</h2>
+            <p>세종의 전통과 문화를 느끼는 여행</p>
+          </div>
+        </section>
+      </div>
+      <div class="section-blue"></div>
 
-    <!-- 코스 대표 이미지 -->
-    <div class="section-blue"></div>
-    <div class="course-card">
-      <section class="course-image-section">
-        <img src="assets/trip1.png" alt="하루 종일 놀기 좋은 코스" class="course-main-image" />
-        <div class="card-text">
-          <h2>3. 조용히 머무르기 좋은 코스</h2>
-          <p>세종의 전통과 문화를 느끼는 여행</p>
-        </div>
-      </section>
-    </div>
-    <div class="section-blue"></div>
-
-    <!-- 파란 곡선 경로 삽입 -->
-    <div class="course-content">
-      <div class="map-layer"></div>
+      <!-- 파란 곡선 경로 삽입 -->
+      <div class="course-content">
+        <div class="map-layer"></div>
 
         <div class="route-wrapper">
-          <svg class="route-svg" viewBox="0 0 375 425" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-5.00001 7.99995C426.5 0.500041 -78.5 407.5 376 418" stroke="#EAF6FA" stroke-width="14" fill="none"/>
+          <svg
+            class="route-svg"
+            viewBox="0 0 375 425"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M-5.00001 7.99995C426.5 0.500041 -78.5 407.5 376 418"
+              stroke="#EAF6FA"
+              stroke-width="14"
+              fill="none"
+            />
           </svg>
-          <img src="assets/icon_location.png" class="location-icon loc1" alt="장소1">
-          <img src="assets/icon_location.png" class="location-icon loc2" alt="장소2">
-          <img src="assets/icon_location.png" class="location-icon loc3" alt="장소3">
-          <img src="assets/icon_location.png" class="location-icon loc4" alt="장소4">
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc1"
+            alt="장소1"
+          />
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc2"
+            alt="장소2"
+          />
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc3"
+            alt="장소3"
+          />
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc4"
+            alt="장소4"
+          />
         </div>
 
-      <!-- 파란색 박스들 -->
+        <!-- 파란색 박스들 -->
         <div class="info-wrapper">
-        <!-- box1 -->
-        <div class="info-box box1">
-          <img src="assets/course3-1.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 뒤웅박고을</strong>
-            <p class="place-address">주소 | 세종 전동면 배일길 90-43</p>
-            <div class="place-desc-box">
-              <p class="place-description">전통 한옥과 자연이 조화를 이루는 곳</p>
+          <!-- box1 -->
+          <div class="info-box box1">
+            <img src="assets/course3-1.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 뒤웅박고을</strong>
+              <p class="place-address">주소 | 세종 전동면 배일길 90-43</p>
+              <div class="place-desc-box">
+                <p class="place-description">
+                  전통 한옥과 자연이 조화를 이루는 곳
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- box2 -->
+          <div class="info-box box2">
+            <img src="assets/course3-22.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 세종홍판서댁</strong>
+              <p class="place-address">주소 | 세종 부강면 용포동촌길 43-19</p>
+              <div class="place-desc-box">
+                <p class="place-description">관료였던 홍판서의 전통 한옥</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- box3 -->
+          <div class="info-box box3">
+            <img src="assets/course3-3.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 조치원 문화정원</strong>
+              <p class="place-address">주소 | 세종 수원지길 75-21</p>
+              <div class="place-desc-box">
+                <p class="place-description">
+                  제1호 우수 건축자산에서 문화예술
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- box4 -->
+          <div class="info-box box4">
+            <img src="assets/course3-4.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 청자장</strong>
+              <p class="place-address">주소 | 세종 조치원읍 문화로 8</p>
+              <div class="place-desc-box">
+                <p class="place-description">
+                  과거 목욕탕에서 복합문화공간으로
+                </p>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- box2 -->
-        <div class="info-box box2">
-          <img src="assets/course3-22.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 세종홍판서댁</strong>
-            <p class="place-address">주소 | 세종 부강면 용포동촌길 43-19</p>
-            <div class="place-desc-box">
-              <p class="place-description"> 관료였던 홍판서의 전통 한옥</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- box3 -->
-        <div class="info-box box3">
-          <img src="assets/course3-3.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 조치원 문화정원</strong>
-            <p class="place-address">주소 | 세종 수원지길 75-21</p>
-            <div class="place-desc-box">
-              <p class="place-description">제1호 우수 건축자산에서 문화예술</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- box4 -->
-        <div class="info-box box4">
-          <img src="assets/course3-4.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 청자장</strong>
-            <p class="place-address">주소 | 세종 조치원읍 문화로 8 </p>
-            <div class="place-desc-box">
-              <p class="place-description">과거 목욕탕에서 복합문화공간으로</p>
-            </div>
-          </div>
-        </div>
-      </div> <!-- info-wrapper 닫힘 -->
-
-    </div> <!-- course-content 닫힘 -->
-        <footer class="bottom-nav">
-      <a href="/festival.html"><img src="assets/icon_festival.png" alt="축제 정보" /><span>축제 정보</span></a>
-      <a href="https://www.youtube.com/@sejongcity"><img src="assets/icon_youtube.png" alt="세종 유튜브" /><span>세종 유튜브</span></a>
-      <a href="/src/index.html"><img src="assets/icon_route.png" alt="추천 코스" /><span>추천 코스</span></a>
-    </footer>
-  </div> <!-- course-page-wrapper 닫힘 -->
-  <script src="course1.js"></script>
-
-</body>
+        <!-- info-wrapper 닫힘 -->
+      </div>
+      <!-- course-content 닫힘 -->
+      <footer class="bottom-nav">
+        <a href="../festival.html"
+          ><img src="assets/icon_festival.png" alt="축제 정보" /><span
+            >축제 정보</span
+          ></a
+        >
+        <a href="https://www.youtube.com/@sejongcity"
+          ><img src="assets/icon_youtube.png" alt="세종 유튜브" /><span
+            >세종 유튜브</span
+          ></a
+        >
+        <a href="index.html"
+          ><img src="assets/icon_route.png" alt="추천 코스" /><span
+            >추천 코스</span
+          ></a
+        >
+      </footer>
+    </div>
+    <!-- course-page-wrapper 닫힘 -->
+    <script src="course1.js"></script>
+  </body>
 </html>
-
-

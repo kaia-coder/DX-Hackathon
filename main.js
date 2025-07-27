@@ -53,14 +53,14 @@ window.addEventListener('DOMContentLoaded', () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.type === 'region' && data.key) {
-            window.location.href = `/map.html?region=${encodeURIComponent(
+            window.location.href = `map.html?region=${encodeURIComponent(
               data.key
             )}`;
           } else if (
             (data.type === 'cafe' || data.type === 'food') &&
             data.key
           ) {
-            window.location.href = `/map-list.html?type=${encodeURIComponent(
+            window.location.href = `map-list.html?type=${encodeURIComponent(
               data.type
             )}&name=${encodeURIComponent(data.key)}`;
           } else {

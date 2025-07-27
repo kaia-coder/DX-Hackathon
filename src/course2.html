@@ -1,108 +1,151 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. 혼자 가기 좋은 감성 카페 코스</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="course2.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. 혼자 가기 좋은 감성 카페 코스</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="course2.css" />
+  </head>
+  <body>
+    <div class="course-page-wrapper">
+      <!-- 상단 로고 -->
+      <header class="course-header">
+        <img src="assets/logo_semo.png" alt="세모 로고" class="course-logo" />
+      </header>
 
-  <div class="course-page-wrapper">
-    <!-- 상단 로고 -->
-    <header class="course-header">
-      <img src="assets/logo_semo.png" alt="세모 로고" class="course-logo" />
-    </header>
+      <!-- 코스 대표 이미지 -->
+      <div class="section-blue"></div>
+      <div class="course-card">
+        <section class="course-image-section">
+          <img
+            src="assets/city_trip.png"
+            alt="혼자 가기 좋은 감성 카페 코스"
+            class="course-main-image"
+          />
+          <div class="card-text">
+            <h2>2. 혼자 가기 좋은 감성 카페 코스</h2>
+            <p>사진 찍기 좋은 감성 스팟</p>
+          </div>
+        </section>
+      </div>
+      <div class="section-blue"></div>
 
-    <!-- 코스 대표 이미지 -->
-    <div class="section-blue"></div>
-    <div class="course-card">
-      <section class="course-image-section">
-        <img src="assets/city_trip.png" alt="혼자 가기 좋은 감성 카페 코스" class="course-main-image" />
-        <div class="card-text">
-          <h2>2. 혼자 가기 좋은 감성 카페 코스</h2>
-          <p>사진 찍기 좋은 감성 스팟</p>
-        </div>
-      </section>
-    </div>
-    <div class="section-blue"></div>
-
-    <!-- 파란 곡선 경로 삽입 -->
-    <div class="course-content">
-      <div class="map-layer"></div>
+      <!-- 파란 곡선 경로 삽입 -->
+      <div class="course-content">
+        <div class="map-layer"></div>
 
         <div class="route-wrapper">
-          <svg class="route-svg" viewBox="0 0 375 425" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-5.00001 7.99995C426.5 0.500041 -78.5 407.5 376 418" stroke="#EAF6FA" stroke-width="14" fill="none"/>
+          <svg
+            class="route-svg"
+            viewBox="0 0 375 425"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M-5.00001 7.99995C426.5 0.500041 -78.5 407.5 376 418"
+              stroke="#EAF6FA"
+              stroke-width="14"
+              fill="none"
+            />
           </svg>
-          <img src="assets/icon_location.png" class="location-icon loc1" alt="장소1">
-          <img src="assets/icon_location.png" class="location-icon loc2" alt="장소2">
-          <img src="assets/icon_location.png" class="location-icon loc3" alt="장소3">
-          <img src="assets/icon_location.png" class="location-icon loc4" alt="장소4">
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc1"
+            alt="장소1"
+          />
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc2"
+            alt="장소2"
+          />
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc3"
+            alt="장소3"
+          />
+          <img
+            src="assets/icon_location.png"
+            class="location-icon loc4"
+            alt="장소4"
+          />
         </div>
 
-      <!-- 파란색 박스들 -->
+        <!-- 파란색 박스들 -->
         <div class="info-wrapper">
-        <!-- box1 -->
-        <div class="info-box box1">
-          <img src="assets/cousre2-1.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 이도커피</strong>
-            <p class="place-address">주소 | 세종 금남면 금남구즉로 152</p>
-            <div class="place-desc-box">
-              <p class="place-description">자연과 어우러진 테라스</p>
+          <!-- box1 -->
+          <div class="info-box box1">
+            <img src="assets/cousre2-1.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 이도커피</strong>
+              <p class="place-address">주소 | 세종 금남면 금남구즉로 152</p>
+              <div class="place-desc-box">
+                <p class="place-description">자연과 어우러진 테라스</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- box2 -->
+          <div class="info-box box2">
+            <img src="assets/course2-2.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 에브리선데이 본점</strong>
+              <p class="place-address">세종 연서면 고복리 658</p>
+              <div class="place-desc-box">
+                <p class="place-description">
+                  저수지 뷰와 함께 혼자만의 시간을 보내기
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- box3 -->
+          <div class="info-box box3">
+            <img src="assets/course2-3.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 카페 오늘 (OHNL)</strong>
+              <p class="place-address">세종 나성북로 50</p>
+              <div class="place-desc-box">
+                <p class="place-description">
+                  화이트톤 인테리어와 따뜻한 분위기
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- box4 -->
+          <div class="info-box box4">
+            <img src="assets/course2-4.jpg" alt="장소 이미지" />
+            <div class="info-text">
+              <strong>• 카페 플레져</strong>
+              <p class="place-address">세종 나성북로 49층 (고층 전망대)</p>
+              <div class="place-desc-box">
+                <p class="place-description">도심 뷰와 여유롭게 커피</p>
+              </div>
             </div>
           </div>
         </div>
-
-        <!-- box2 -->
-        <div class="info-box box2">
-          <img src="assets/course2-2.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 에브리선데이 본점</strong>
-            <p class="place-address">세종 연서면 고복리 658</p>
-            <div class="place-desc-box">
-              <p class="place-description">저수지 뷰와 함께 혼자만의 시간을 보내기</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- box3 -->
-        <div class="info-box box3">
-          <img src="assets/course2-3.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 카페 오늘 (OHNL)</strong>
-            <p class="place-address">세종 나성북로 50</p>
-            <div class="place-desc-box">
-              <p class="place-description">화이트톤 인테리어와 따뜻한 분위기</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- box4 -->
-        <div class="info-box box4">
-          <img src="assets/course2-4.jpg" alt="장소 이미지" />
-          <div class="info-text">
-            <strong>• 카페 플레져</strong>
-            <p class="place-address">세종 나성북로 49층 (고층 전망대)</p>
-            <div class="place-desc-box">
-              <p class="place-description">도심 뷰와 여유롭게 커피</p>
-            </div>
-          </div>
-        </div>
-      </div> <!-- info-wrapper 닫힘 -->
-
-    </div> <!-- course-content 닫힘 -->
-        <footer class="bottom-nav">
-      <a href="/festival.html"><img src="assets/icon_festival.png" alt="축제 정보" /><span>축제 정보</span></a>
-      <a href="https://www.youtube.com/@sejongcity"><img src="assets/icon_youtube.png" alt="세종 유튜브" /><span>세종 유튜브</span></a>
-      <a href="/src/index.html"><img src="assets/icon_route.png" alt="추천 코스" /><span>추천 코스</span></a>
-    </footer>
-  </div> <!-- course-page-wrapper 닫힘 -->
-  <script src="course2.js"></script>
-
-</body>
+        <!-- info-wrapper 닫힘 -->
+      </div>
+      <!-- course-content 닫힘 -->
+      <footer class="bottom-nav">
+        <a href="../festival.html"
+          ><img src="assets/icon_festival.png" alt="축제 정보" /><span
+            >축제 정보</span
+          ></a
+        >
+        <a href="https://www.youtube.com/@sejongcity"
+          ><img src="assets/icon_youtube.png" alt="세종 유튜브" /><span
+            >세종 유튜브</span
+          ></a
+        >
+        <a href="index.html"
+          ><img src="assets/icon_route.png" alt="추천 코스" /><span
+            >추천 코스</span
+          ></a
+        >
+      </footer>
+    </div>
+    <!-- course-page-wrapper 닫힘 -->
+    <script src="course2.js"></script>
+  </body>
 </html>
-
-
