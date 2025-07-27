@@ -1,3 +1,0 @@
-# DX-Hackathon
-
-🔥💪 Keep going 🚀 🔥
