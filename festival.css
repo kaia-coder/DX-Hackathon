@@ -6,11 +6,7 @@
   height: calc(100vh - 60px);
   background: #fff;
   border-radius: 60px 60px 32px 32px;
-<<<<<<< HEAD
   border: 1px solid #d3dee1;
-=======
-  border: 1px solid #D3DEE1;
->>>>>>> origin/dev
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -20,17 +16,10 @@
 .top-bar {
   width: 70px;
   height: 5px;
-<<<<<<< HEAD
   background: #cccccc;
   border-radius: 4px;
   position: absolute;
   top: 8px;
-=======
-  background: #CCCCCC;
-  border-radius: 4px;
-  position: absolute;
-  top: 8px;   
->>>>>>> origin/dev
   left: 50%;
   transform: translateX(-50%);
 }
@@ -55,15 +44,9 @@
 
 /* 상단 고정 영역 */
 .fixed-header {
-<<<<<<< HEAD
   position: relative; /* relative로 하면 그대로 스태틱 flowing */
   z-index: 1;
   background: #fff;
-=======
-  position: relative;      /* relative로 하면 그대로 스태틱 flowing */
-  z-index: 1;
-  background: #fff;   
->>>>>>> origin/dev
   height: 80px;
   padding: 0 16px;
   display: flex;
@@ -130,11 +113,7 @@
 .title-desc {
   font-size: 14px;
   font-weight: 400;
-<<<<<<< HEAD
   color: #cccccc;
-=======
-  color: #CCCCCC;
->>>>>>> origin/dev
   text-align: left;
   margin: 0 0 8px 0;
 }
@@ -144,27 +123,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px 12px;
-<<<<<<< HEAD
   max-width: 420px;
   width: 100%;
   margin: 0 auto;
-=======
-  max-width: 420px;   
-  width: 100%;
-  margin: 0 auto;      
->>>>>>> origin/dev
   padding: 0 10px 16px 10px;
   box-sizing: border-box;
 }
 
 .festival-card {
-<<<<<<< HEAD
   background: #f7fbfc;
   border: 1.5px solid #66bde3;
-=======
-  background: #F7FBFC;
-  border: 1.5px solid #66BDE3;  
->>>>>>> origin/dev
   border-radius: 16px;
   box-sizing: border-box;
   overflow: hidden;
@@ -172,11 +140,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0 0 12px 0;
-<<<<<<< HEAD
   width: 100%;
-=======
-  width: 100%;   
->>>>>>> origin/dev
   margin: 0 auto;
 }
 
@@ -184,21 +148,13 @@
   width: 100%;
   aspect-ratio: 3/2;
   object-fit: cover;
-<<<<<<< HEAD
   border-bottom: 1px solid #eaf6fa;
-=======
-  border-bottom: 1px solid #EAF6FA;
->>>>>>> origin/dev
 }
 .card-name {
   font-size: 16px;
   font-weight: 700;
   margin: 10px 0 2px 0;
-<<<<<<< HEAD
   color: #064a73;
-=======
-  color: #064A73;
->>>>>>> origin/dev
   text-align: center;
 }
 .card-period {
@@ -207,12 +163,8 @@
   text-align: center;
 }
 
-<<<<<<< HEAD
 html,
 body,
 .background {
-=======
-html, body, .background {
->>>>>>> origin/dev
   overflow-x: hidden !important;
 }
