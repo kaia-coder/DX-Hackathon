@@ -1,0 +1,25 @@
+.category-bar {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+.category-btn {
+  padding: 6px 16px;
+  border-radius: 18px;
+  border: 1.2px solid #D3DEE1;
+  background: #fff;
+  color: #495057;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border 0.15s, color 0.15s;
+  outline: none;
+  user-select: none;
+}
+.category-btn.active,
+.category-btn:focus {
+  background: #008AD5;
+  color: #fff;
+  border-color: #008AD5;
+}
