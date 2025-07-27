@@ -7,7 +7,7 @@
 .category-btn {
   padding: 6px 16px;
   border-radius: 18px;
-  border: 1.2px solid #D3DEE1;
+  border: 1.2px solid #d3dee1;
   background: #fff;
   color: #495057;
   font-size: 14px;
@@ -19,7 +19,19 @@
 }
 .category-btn.active,
 .category-btn:focus {
-  background: #008AD5;
+  background: #ffedb5;
+
+  color: #000000;
+
+  border-color: #d3dee1;
+}
+
+.category-btn.active {
+  background: #257199;
+
   color: #fff;
-  border-color: #008AD5;
+
+  font-weight: bold;
+
+  /* 원하는 스타일 추가 */
 }

@@ -6,7 +6,7 @@
   height: calc(100vh - 60px);
   background: #fff;
   border-radius: 60px 60px 32px 32px;
-  border: 1px solid #D3DEE1;
+  border: 1px solid #d3dee1;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -16,18 +16,18 @@
 .top-bar {
   width: 70px;
   height: 5px;
-  background: #CCCCCC;
+  background: #cccccc;
   border-radius: 4px;
   position: absolute;
-  top: 8px;   
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .close-button {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 17px;
+  right: 28px;
   width: 36px;
   height: 36px;
   display: flex;
@@ -44,9 +44,9 @@
 
 /* 상단 고정 영역 */
 .fixed-header {
-  position: relative;      /* relative로 하면 그대로 스태틱 flowing */
+  position: relative; /* relative로 하면 그대로 스태틱 flowing */
   z-index: 1;
-  background: #fff;   
+  background: #fff;
   height: 80px;
   padding: 0 16px;
   display: flex;
@@ -113,7 +113,7 @@
 .title-desc {
   font-size: 14px;
   font-weight: 400;
-  color: #CCCCCC;
+  color: #cccccc;
   text-align: left;
   margin: 0 0 8px 0;
 }
@@ -123,16 +123,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px 12px;
-  max-width: 420px;   
+  max-width: 420px;
   width: 100%;
-  margin: 0 auto;      
+  margin: 0 auto;
   padding: 0 10px 16px 10px;
   box-sizing: border-box;
 }
 
 .festival-card {
-  background: #F7FBFC;
-  border: 1.5px solid #66BDE3;  
+  background: #f7fbfc;
+  border: 1.5px solid #66bde3;
   border-radius: 16px;
   box-sizing: border-box;
   overflow: hidden;
@@ -140,7 +140,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0 0 12px 0;
-  width: 100%;   
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -148,13 +148,13 @@
   width: 100%;
   aspect-ratio: 3/2;
   object-fit: cover;
-  border-bottom: 1px solid #EAF6FA;
+  border-bottom: 1px solid #eaf6fa;
 }
 .card-name {
   font-size: 16px;
   font-weight: 700;
   margin: 10px 0 2px 0;
-  color: #064A73;
+  color: #064a73;
   text-align: center;
 }
 .card-period {
@@ -163,6 +163,8 @@
   text-align: center;
 }
 
-html, body, .background {
+html,
+body,
+.background {
   overflow-x: hidden !important;
 }
