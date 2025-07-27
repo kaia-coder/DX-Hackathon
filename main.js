@@ -2,22 +2,23 @@
 
 const FESTIVAL_REGION_IDS = ['jochiwon', 'center'];
 
-const BASE_COLOR = '#B7DDF2', FESTIVAL_COLOR = '#FFEDB5';
+const BASE_COLOR = '#B7DDF2',
+  FESTIVAL_COLOR = '#FFEDB5';
 
 const FESTIVAL_REGION_MARKS = [
   { id: 'jochiwon', top: 174, left: 195 },
   { id: 'center', top: 352, left: 186 },
-  { id: 'jeondong', top: 85, left: 146 }
+  { id: 'jeondong', top: 85, left: 146 },
 ];
 
 const festivalPosters = [
   { image: 'src/assets/nav/test.svg', position: 'top' },
-  { image: 'src/assets/nav/test.svg', position: 'bottom' }
+  { image: 'src/assets/nav/test.svg', position: 'bottom' },
 ];
 
 window.addEventListener('DOMContentLoaded', () => {
   // 1. 지도 색상/클릭
-  document.querySelectorAll('#main-map path').forEach(path => {
+  document.querySelectorAll('#main-map path').forEach((path) => {
     path.setAttribute(
       'fill',
       FESTIVAL_REGION_IDS.includes(path.id) ? FESTIVAL_COLOR : BASE_COLOR
@@ -26,15 +27,15 @@ window.addEventListener('DOMContentLoaded', () => {
     path.addEventListener('click', () => {
       window.location.href = `/map.html?region=${encodeURIComponent(path.id)}`;
     });
-    
+
     path.onselectstart = () => false;
-    path.onmousedown = e => e.preventDefault();
+    path.onmousedown = (e) => e.preventDefault();
   });
 
   // 2. 검색창
   const searchInput = document.getElementById('main-search-input');
   if (searchInput) {
-    searchInput.addEventListener('keydown', function(e) {
+    searchInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') handleSearch();
     });
     const searchIcon = document.querySelector('.search-icon');
@@ -44,19 +45,30 @@ window.addEventListener('DOMContentLoaded', () => {
     function handleSearch() {
       const query = searchInput.value.trim();
       if (!query) return;
-      fetch(`/api/search?q=${encodeURIComponent(query)}`)
-        .then(res => res.json())
-        .then(data => {
-          if (data.type === "region" && data.key) {
-            window.location.href = `/map.html?region=${encodeURIComponent(data.key)}`;
-          } else if ((data.type === "cafe" || data.type === "food") && data.key) {
-            window.location.href = `/map-list.html?type=${encodeURIComponent(data.type)}&name=${encodeURIComponent(data.key)}`;
+      fetch(
+        `https://sejong-festival-api.onrender.com/api/search?q=${encodeURIComponent(
+          query
+        )}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.type === 'region' && data.key) {
+            window.location.href = `/map.html?region=${encodeURIComponent(
+              data.key
+            )}`;
+          } else if (
+            (data.type === 'cafe' || data.type === 'food') &&
+            data.key
+          ) {
+            window.location.href = `/map-list.html?type=${encodeURIComponent(
+              data.type
+            )}&name=${encodeURIComponent(data.key)}`;
           } else {
-            alert("검색 결과가 없습니다.");
+            alert('검색 결과가 없습니다.');
           }
         })
-        .catch(err => {
-          alert("검색 중 오류가 발생했습니다.");
+        .catch((err) => {
+          alert('검색 중 오류가 발생했습니다.');
         });
     }
   }
@@ -87,15 +99,17 @@ window.addEventListener('DOMContentLoaded', () => {
   const marksLayer = document.getElementById('firework-marks-layer');
   if (marksLayer) {
     marksLayer.innerHTML = '';
-    FESTIVAL_REGION_MARKS.forEach(region => {
+    FESTIVAL_REGION_MARKS.forEach((region) => {
       // ★ FESTIVAL_REGION_IDS(축제가 실제 열리는 지역)만 표시
       if (!FESTIVAL_REGION_IDS.includes(region.id)) return;
       const img = document.createElement('img');
       img.src = 'assets/nav/firework.svg';
       img.alt = `${region.id} 폭죽마크`;
       img.style.position = 'absolute';
-      img.style.top = (typeof region.top === 'number') ? region.top + 'px' : region.top;
-      img.style.left = (typeof region.left === 'number') ? region.left + 'px' : region.left;
+      img.style.top =
+        typeof region.top === 'number' ? region.top + 'px' : region.top;
+      img.style.left =
+        typeof region.left === 'number' ? region.left + 'px' : region.left;
       img.style.pointerEvents = 'none';
       img.style.zIndex = 30;
       img.style.width = '48px';

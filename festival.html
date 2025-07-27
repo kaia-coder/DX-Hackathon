@@ -1,163 +1,296 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>세종 MockHome UI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="background.css" />
-  <link rel="stylesheet" href="festival.css" />
-  <link rel="stylesheet" href="bottomnav.css" />
-</head>
-<body>
-  <div class="background">
-    <div class="mobile-frame">
-      <!-- 상단 고정 영역 -->
-      <div class="fixed-header" style="position:relative;">
-        <div class="top-bar"></div>
-        <div class="close-button" onclick="window.location.href='index.html'">
-          <img src="assets/nav/close.svg" alt="닫기 버튼" />
-        </div>  
-      </div>
-
-      <!-- 로고 -->
-      <img src="assets/nav/logo.svg" class="semo-icon" style="width:66%; border-radius:16px; position:relative; left:41px; top: -44px;">
-
-      <!-- ✅ 스크롤 되는 콘텐츠 -->
-      <div class="content-scroll">
-        <!-- 1. 진행 중인 축제 포스터 -->
-        <div class="main-poster-carousel">
-          <div class="carousel-track">
-            <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
-            <img src="src/assets/nav/test.svg" class="main-poster" alt="테스트 포스터" />
+  <head>
+    <meta charset="UTF-8" />
+    <title>세종 MockHome UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="background.css" />
+    <link rel="stylesheet" href="festival.css" />
+    <link rel="stylesheet" href="bottomnav.css" />
+  </head>
+  <body>
+    <div class="background">
+      <div class="mobile-frame">
+        <!-- 상단 고정 영역 -->
+        <div class="fixed-header" style="position: relative">
+          <div class="top-bar"></div>
+          <div class="close-button" onclick="window.location.href='index.html'">
+            <img src="assets/nav/close.svg" alt="닫기 버튼" />
           </div>
         </div>
 
-        <!-- 2. 세종시 대표 축제 섹션 -->
-        <div class="section-title">
-          <div class="title-strong">세종시 대표 축제</div>
-          <div class="title-desc">지금 바로 일정을 확인해보세요!</div>
+        <!-- 로고 -->
+        <img
+          src="assets/nav/logo.svg"
+          class="semo-icon"
+          style="
+            width: 66%;
+            border-radius: 16px;
+            position: relative;
+            left: 41px;
+            top: -44px;
+          "
+        />
+
+        <!-- ✅ 스크롤 되는 콘텐츠 -->
+        <div class="content-scroll">
+          <!-- 1. 진행 중인 축제 포스터 -->
+          <div class="main-poster-carousel">
+            <div class="carousel-track">
+              <img
+                src="src/assets/nav/test.svg"
+                class="main-poster"
+                alt="테스트 포스터"
+              />
+              <img
+                src="src/assets/nav/test.svg"
+                class="main-poster"
+                alt="테스트 포스터"
+              />
+            </div>
+          </div>
+
+          <!-- 2. 세종시 대표 축제 섹션 -->
+          <div class="section-title">
+            <div class="title-strong">세종시 대표 축제</div>
+            <div class="title-desc">지금 바로 일정을 확인해보세요!</div>
+          </div>
+
+          <!-- 3. 전체 축제 목록 -->
+          <div class="festival-card-list">
+            <a
+              href="festival.info.html?id=1"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="festival-card">
+                <img
+                  src="src/assets/nav/test.svg"
+                  class="card-poster"
+                  alt="테스트 포스터"
+                />
+                <div class="card-name">축제명 예시 1</div>
+                <div class="card-period">2025.07.01 ~ 2025.07.10</div>
+              </div>
+            </a>
+            <a
+              href="festival.info.html?id=2"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="festival-card">
+                <img
+                  src="src/assets/nav/test.svg"
+                  class="card-poster"
+                  alt="테스트 포스터"
+                />
+                <div class="card-name">축제명 예시 2</div>
+                <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+              </div>
+            </a>
+            <a
+              href="festival.info.html?id=3"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="festival-card">
+                <img
+                  src="src/assets/nav/test.svg"
+                  class="card-poster"
+                  alt="테스트 포스터"
+                />
+                <div class="card-name">축제명 예시 3</div>
+                <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+              </div>
+            </a>
+            <a
+              href="festival.info.html?id=4"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="festival-card">
+                <img
+                  src="src/assets/nav/test.svg"
+                  class="card-poster"
+                  alt="테스트 포스터"
+                />
+                <div class="card-name">축제명 예시 4</div>
+                <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+              </div>
+            </a>
+            <a
+              href="festival.info.html?id=5"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="festival-card">
+                <img
+                  src="src/assets/nav/test.svg"
+                  class="card-poster"
+                  alt="테스트 포스터"
+                />
+                <div class="card-name">축제명 예시 5</div>
+                <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+              </div>
+            </a>
+            <a
+              href="festival.info.html?id=6"
+              style="text-decoration: none; color: inherit"
+            >
+              <div class="festival-card">
+                <img
+                  src="src/assets/nav/test.svg"
+                  class="card-poster"
+                  alt="테스트 포스터"
+                />
+                <div class="card-name">축제명 예시 6</div>
+                <div class="card-period">2025.07.20 ~ 2025.07.27</div>
+              </div>
+            </a>
+          </div>
         </div>
+        <!-- ✅ content-scroll 닫기 -->
+      </div>
+      <!-- ✅ mobile-frame 닫기 -->
+    </div>
+    <!-- background 닫기 -->
 
-        <!-- 3. 전체 축제 목록 -->
-        <div class="festival-card-list">
-          <a href="festival.info.html?id=1" style="text-decoration:none; color:inherit;">
-            <div class="festival-card">
-              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-              <div class="card-name">축제명 예시 1</div>
-              <div class="card-period">2025.07.01 ~ 2025.07.10</div>
-            </div>
-          </a>
-          <a href="festival.info.html?id=2" style="text-decoration:none; color:inherit;">
-            <div class="festival-card">
-              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-              <div class="card-name">축제명 예시 2</div>
-              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-            </div>
-          </a>
-          <a href="festival.info.html?id=3" style="text-decoration:none; color:inherit;">
-            <div class="festival-card">
-              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-              <div class="card-name">축제명 예시 3</div>
-              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-            </div>
-          </a>
-          <a href="festival.info.html?id=4" style="text-decoration:none; color:inherit;">
-            <div class="festival-card">
-              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-              <div class="card-name">축제명 예시 4</div>
-              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-            </div>
-          </a>
-          <a href="festival.info.html?id=5" style="text-decoration:none; color:inherit;">
-            <div class="festival-card">
-              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-              <div class="card-name">축제명 예시 5</div>
-              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-            </div>
-          </a>
-          <a href="festival.info.html?id=6" style="text-decoration:none; color:inherit;">
-            <div class="festival-card">
-              <img src="src/assets/nav/test.svg" class="card-poster" alt="테스트 포스터" />
-              <div class="card-name">축제명 예시 6</div>
-              <div class="card-period">2025.07.20 ~ 2025.07.27</div>
-            </div>
-          </a>
-        </div>
-      </div> <!-- ✅ content-scroll 닫기 -->
+    <!-- 하단 네비게이션 -->
+    <nav class="bottom-nav">
+      <a class="nav-btn active" href="/festival.html">
+        <span class="icon-box"
+          ><img src="assets/nav/festival.svg" alt="축제"
+        /></span>
+        <span class="nav-label">축제 정보</span>
+      </a>
+      <a class="nav-btn" href="https://www.youtube.com/@sejongcity">
+        <span class="icon-box"
+          ><img src="assets/nav/youtube.svg" alt="유튜브"
+        /></span>
+        <span class="nav-label">세종시 공식 유튜브</span>
+      </a>
+      <a class="nav-btn" href="src/index.html">
+        <span class="icon-box"
+          ><img src="assets/nav/trip.svg" alt="추천 코스"
+        /></span>
+        <span class="nav-label">추천 코스</span>
+      </a>
+    </nav>
 
-    </div> <!-- ✅ mobile-frame 닫기 -->
-  </div> <!-- background 닫기 -->
+    <!-- 캐러셀 JS -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        // 캐러셀 기능
+        const track = document.querySelector('.carousel-track');
+        const posters = document.querySelectorAll('.main-poster');
+        let current = 0,
+          startX = 0,
+          deltaX = 0,
+          dragging = false;
 
-  <!-- 하단 네비게이션 -->
-  <nav class="bottom-nav">
-    <a class="nav-btn active" href="/festival.html">
-      <span class="icon-box"><img src="assets/nav/festival.svg" alt="축제" /></span>
-      <span class="nav-label">축제 정보</span>
-    </a>
-    <a class="nav-btn" href="https://www.youtube.com/@sejongcity">
-      <span class="icon-box"><img src="assets/nav/youtube.svg" alt="유튜브" /></span>
-      <span class="nav-label">세종시 공식 유튜브</span>
-    </a>
-    <a class="nav-btn" href="src/index.html">
-      <span class="icon-box"><img src="assets/nav/trip.svg" alt="추천 코스" /></span>
-      <span class="nav-label">추천 코스</span>
-    </a>
-  </nav>
+        function updateCarousel() {
+          track.style.transform = `translateX(${-current * 100}vw)`;
+        }
 
-  <!-- 캐러셀 JS -->
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const track = document.querySelector('.carousel-track');
-      const posters = document.querySelectorAll('.main-poster');
-      let current = 0, startX = 0, deltaX = 0, dragging = false;
+        track.addEventListener('touchstart', (e) => {
+          if (e.touches.length !== 1) return;
+          startX = e.touches[0].clientX;
+          dragging = true;
+        });
+        track.addEventListener('touchmove', (e) => {
+          if (!dragging || e.touches.length !== 1) return;
+          deltaX = e.touches[0].clientX - startX;
+        });
+        track.addEventListener('touchend', (e) => {
+          if (!dragging) return;
+          if (deltaX < -50 && current < posters.length - 1) current++;
+          else if (deltaX > 50 && current > 0) current--;
+          updateCarousel();
+          dragging = false;
+          deltaX = 0;
+        });
 
-      function updateCarousel() {
-        track.style.transform = `translateX(${-current * 100}vw)`;
-      }
+        track.addEventListener('mousedown', (e) => {
+          startX = e.clientX;
+          dragging = true;
+        });
+        track.addEventListener('mousemove', (e) => {
+          if (!dragging) return;
+          deltaX = e.clientX - startX;
+        });
+        track.addEventListener('mouseup', (e) => {
+          if (!dragging) return;
+          if (deltaX < -50 && current < posters.length - 1) current++;
+          else if (deltaX > 50 && current > 0) current--;
+          updateCarousel();
+          dragging = false;
+          deltaX = 0;
+        });
 
-      track.addEventListener('touchstart', e => {
-        if (e.touches.length !== 1) return;
-        startX = e.touches[0].clientX;
-        dragging = true;
-      });
-      track.addEventListener('touchmove', e => {
-        if (!dragging || e.touches.length !== 1) return;
-        deltaX = e.touches[0].clientX - startX;
-      });
-      track.addEventListener('touchend', e => {
-        if (!dragging) return;
-        if (deltaX < -50 && current < posters.length - 1) current++;
-        else if (deltaX > 50 && current > 0) current--;
+        track.addEventListener('mouseleave', (e) => {
+          if (!dragging) return;
+          dragging = false;
+          deltaX = 0;
+        });
+
         updateCarousel();
-        dragging = false;
-        deltaX = 0;
-      });
 
-      track.addEventListener('mousedown', e => {
-        startX = e.clientX;
-        dragging = true;
-      });
-      track.addEventListener('mousemove', e => {
-        if (!dragging) return;
-        deltaX = e.clientX - startX;
-      });
-      track.addEventListener('mouseup', e => {
-        if (!dragging) return;
-        if (deltaX < -50 && current < posters.length - 1) current++;
-        else if (deltaX > 50 && current > 0) current--;
-        updateCarousel();
-        dragging = false;
-        deltaX = 0;
-      });
+        // API 연동: 축제 목록 불러오기
+        async function loadFestivals() {
+          try {
+            console.log('🎪 축제 목록 API 호출 중...');
+            const response = await fetch(
+              'https://sejong-festival-api.onrender.com/api/festivals'
+            );
 
-      track.addEventListener('mouseleave', e => {
-        if (!dragging) return;
-        dragging = false;
-        deltaX = 0;
-      });
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-      updateCarousel();
-    });
-  </script>
-</body>
+            const festivals = await response.json();
+            console.log('✅ 축제 목록 로드 완료:', festivals);
+
+            // 축제 카드 목록 업데이트
+            updateFestivalCards(festivals);
+          } catch (error) {
+            console.error('❌ 축제 목록 로드 실패:', error);
+            // API 실패 시 기존 하드코딩된 데이터 유지
+          }
+        }
+
+        // 축제 카드 목록 업데이트 함수
+        function updateFestivalCards(festivals) {
+          const festivalList = document.querySelector('.festival-card-list');
+
+          if (!festivalList || festivals.length === 0) {
+            console.log('축제 데이터가 없거나 DOM 요소를 찾을 수 없습니다.');
+            return;
+          }
+
+          // 기존 카드들 제거
+          festivalList.innerHTML = '';
+
+          // 새로운 축제 카드들 생성
+          festivals.forEach((festival, index) => {
+            const festivalCard = `
+            <a href="festival.info.html?id=${
+              festival.id
+            }" style="text-decoration:none; color:inherit;">
+              <div class="festival-card">
+                <img src="${
+                  festival.image_url || 'src/assets/nav/test.svg'
+                }" class="card-poster" alt="${festival.name}" />
+                <div class="card-name">${festival.name}</div>
+                <div class="card-period">${
+                  festival.date || '날짜 정보 없음'
+                }</div>
+              </div>
+            </a>
+          `;
+            festivalList.innerHTML += festivalCard;
+          });
+
+          console.log(`🎉 ${festivals.length}개의 축제 카드 업데이트 완료`);
+        }
+
+        // 페이지 로드 시 축제 목록 불러오기
+        loadFestivals();
+      });
+    </script>
+  </body>
 </html>
