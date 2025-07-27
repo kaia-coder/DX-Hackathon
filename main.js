@@ -16,6 +16,27 @@ const festivalPosters = [
   { image: 'src/assets/nav/test.svg', position: 'bottom' },
 ];
 
+// API URL 설정 - 환경에 따라 동적 설정
+function getApiBaseUrl() {
+  // GitHub Pages 배포 환경 확인
+  if (window.location.hostname.includes('github.io')) {
+    // GitHub Pages에서는 Railway 배포된 API 사용
+    return 'https://sejong-festival-api.onrender.com';
+  } else if (
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1'
+  ) {
+    // 로컬 개발 환경
+    return 'http://localhost:8000';
+  } else {
+    // 기타 환경 (Railway 등)
+    return 'https://sejong-festival-api.onrender.com';
+  }
+}
+
+const API_BASE_URL = getApiBaseUrl();
+console.log(`🌐 API Base URL: ${API_BASE_URL}`);
+
 window.addEventListener('DOMContentLoaded', () => {
   // 1. 지도 색상/클릭
   document.querySelectorAll('#main-map path').forEach((path) => {
@@ -25,7 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
     );
     path.style.cursor = 'pointer';
     path.addEventListener('click', () => {
-      window.location.href = `/map.html?region=${encodeURIComponent(path.id)}`;
+      window.location.href = `./map.html?region=${encodeURIComponent(path.id)}`;
     });
 
     path.onselectstart = () => false;
@@ -45,22 +66,18 @@ window.addEventListener('DOMContentLoaded', () => {
     function handleSearch() {
       const query = searchInput.value.trim();
       if (!query) return;
-      fetch(
-        `https://sejong-festival-api.onrender.com/api/search?q=${encodeURIComponent(
-          query
-        )}`
-      )
+      fetch(`${API_BASE_URL}/api/search?q=${encodeURIComponent(query)}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.type === 'region' && data.key) {
-            window.location.href = `map.html?region=${encodeURIComponent(
+            window.location.href = `./map.html?region=${encodeURIComponent(
               data.key
             )}`;
           } else if (
             (data.type === 'cafe' || data.type === 'food') &&
             data.key
           ) {
-            window.location.href = `map-list.html?type=${encodeURIComponent(
+            window.location.href = `./map-list.html?type=${encodeURIComponent(
               data.type
             )}&name=${encodeURIComponent(data.key)}`;
           } else {
@@ -68,6 +85,7 @@ window.addEventListener('DOMContentLoaded', () => {
           }
         })
         .catch((err) => {
+          console.error('검색 오류:', err);
           alert('검색 중 오류가 발생했습니다.');
         });
     }
