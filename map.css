@@ -1,68 +1,134 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <title>조치원 복숭아 축제 정보</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="background.css" />
-  <link rel="stylesheet" href="festival.info.css" />
-  <link rel="stylesheet" href="bottomnav.css" />
-</head>
-<body>
-  <div class="background">
-    <div class="mobile-frame">
-      <!-- 이 부분만 내부적으로 스크롤 -->
-      <div class="festival-info">
-        <img class="festival-poster" src="assets/nav/test.svg" alt="포스터">
-        <div class="festival-title">조치원 복숭아 축제</div>
-        <div class="festival-explan">세종시 명물 조치원 복숭아 당도 최고</div>
-        <div class="festival-detail-card">
-          <dl>
-            <dt>축제일정</dt>
-            <dd>2025.07.25 ~ 2025.07.27</dd>
-            <dt>축제시간</dt>
-            <dd>금/토/일</dd>
-            <dt>축제 장소</dt>
-            <dd>세종시민운동장<br>세종특별자치시 조치원읍 대첩로 98(신흥리 370-2)</dd>
-            <dt>공식 홈페이지</dt>
-            <dd><a href="http://www.jcwpeach.kr/" target="_blank">www.jcwpeach.kr</a></dd>
-            <dt>연락처</dt>
-            <dd>012-345-6789</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </div>
-  <nav class="bottom-nav">
-    <button class="nav-btn active">
-      <span class="icon-box"><img src="assets/nav/festival.svg" /></span>
-      <span class="nav-label">축제 정보</span>
-    </button>
-    <button class="nav-btn">
-      <span class="icon-box"><img src="assets/nav/youtube.svg" /></span>
-      <span class="nav-label">세종시 공식 유튜브</span>
-    </button>
-    <button class="nav-btn">
-      <span class="icon-box"><img src="assets/nav/trip.svg" /></span>
-      <span class="nav-label">추천 코스</span>
-    </button>
-  </nav>
+html, body, .background {
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.background {
+  background: #EAF6FA;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
 
-    <!-- ... 하단 네비 아이콘 클릭 시 페이지 이동 ... -->
-<nav class="bottom-nav">
-  <a class="nav-btn active" href="/festival.html">
-    <span class="icon-box"><img src="assets/nav/festival.svg" alt="축제" /></span>
-    <span class="nav-label">축제 정보</span>
-  </a>
-  <a class="nav-btn" href="/youtube.html">
-    <span class="icon-box"><img src="assets/nav/youtube.svg" alt="유튜브" /></span>
-    <span class="nav-label">세종시 공식 유튜브</span>
-  </a>
-  <a class="nav-btn" href="/trip.html">
-    <span class="icon-box"><img src="assets/nav/trip.svg" alt="추천 코스" /></span>
-    <span class="nav-label">추천 코스</span>
-  </a>
-</nav>
+/* 모바일 프레임, 네모 내부만 스크롤 */
+.mobile-frame {
+  position: relative;
+  margin: 60px 0 0 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: #fff;
+  border-radius: 60px 60px 32px 32px;
+  border: 1px solid #D3DEE1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 440px;
+}
 
-</body>
-</html>
+/* 이 부분만 네모 안 스크롤*/
+.place-info {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 80px;     /* 네비게이션 바에 가리지 않도록 여백 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 60px 60px 32px 32px;
+}
+
+/* 아래 내용만 스크롤 */
+.content-scroll {
+  width: 100%;
+  overflow-y: auto;
+  /* 좌우 padding 필요시만 px로 */
+}
+
+.content-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.content-scroll::-webkit-scrollbar-thumb {
+  background: #e0e9ef;
+  border-radius: 20px;
+}
+
+/* --- 상세 레이아웃/스타일 --- */
+.place-poster {
+  width: 100%;
+  max-width: 440px;
+  min-height: 170px;
+  aspect-ratio: 335/180;
+  object-fit: cover;
+  border-radius: 60px 60px 0 0;       
+  display: block;
+  background: #f4f4f4;
+}
+
+.place-title {
+  width: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #222;
+  text-align: left;
+  margin: 50px 0 20px 30px;
+  letter-spacing: -0.5px;
+}
+.place-explan{
+  width: 100%;
+  font-size: 15px;
+  font-weight: bold;
+  color: #424242;
+  text-align: left;
+  margin: 0 0 15px 33px;
+  leftter-spacing: -0.5px;
+}
+.place-detail-card {
+  width: 90%;
+  background: #F7FBFC;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(80,140,180,0.07);
+  border: 1.5px solid #A3D9F8;
+  margin: 0 auto 10px auto;
+  box-sizing: border-box;
+  padding: 28px 16px 20px 16px;
+}
+.place-detail-card dl {
+  margin: 0;
+  padding: 0;
+}
+.place-detail-card dt {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1565A0;
+  margin-top: 12px;
+  margin-bottom: 2px;
+}
+.place-detail-card dd {
+  font-size: 15px;
+  font-weight: 400;
+  color: #32374A;
+  margin: 0 0 7px 0;
+  line-height: 1.6;
+}
+.place-detail-card a {
+  color: #469BCB;
+  text-decoration: underline;
+}
+
+/* 작은 화면 반응형 */
+@media (max-width: 480px) {
+  .mobile-frame, .place-poster {
+    max-width: 100vw;
+    border-radius: 7vw 7vw 6vw 6vw;
+  }
+  .place-detail-card {
+    width: 96%;
+    border-radius: 16px;
+    padding: 18px 5vw 16px 5vw;
+  }
+}
