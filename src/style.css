@@ -3,14 +3,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Apple SD Gothic Neo', sans-serif;
-  background-color: #EAF6FA; /* 하늘색 배경 */
+  background-color: #EAF6FA;
 }
 
 /* 앱 전체 wrapper */
 .app-background {
   max-width: 420px;
+  width: 100vw;
   margin: 0 auto;
   padding-bottom: 100px;
+  background-color: #ffffff;
 }
 
 /* 상단 흰 카드 */
@@ -20,85 +22,131 @@ body {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  padding: 20px;
+  padding: 20px 0;
   margin: 0;
-  border-bottom: 1px solid #CCCCCC; /* 분할선 */
-  text-align: center;
+  border-bottom: none;
 }
 
-/* 로고 */
+/* 회색 구분선 바 */
+.divider-line {
+  height: 8px;
+  width: 100%;
+  background-color: #CCCCCC;
+  margin: 0;
+}
+
+/* 헤더 내부 정렬 */
+.app-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px;
+}
+
+/* 로고 이미지 */
 .logo-img {
-  width: 200px;
+  width: 180px;
   margin-bottom: 10px;
 }
 
-/* 상단 설명 텍스트 */
+/* 설명 텍스트 */
+.description-text {
+  text-align: left;
+  width: 100%;
+  padding: 0;
+}
+
 .description-text .main-desc {
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 6px;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.2;
   color: #000000;
 }
 
 .description-text .sub-desc {
-  font-size: 14px;
+  font-size: 11px;
   color: #A6A6A6;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.2;
 }
 
-/* 코스 리스트 */
+/* 코스 리스트 wrapper */
 .course-list {
-  margin: 0 0 16px;
+  margin: 0;
+  background-color: #ffffff;
 }
 
-/* 각 코스 카드 */
+/* 이미지 사이 파란 띠 */
+.section-blue {
+  height: 13px;
+  background-color: #EAF6FA;
+}
+
+/* 이미지 사이 흰색 띠 */
+.section-white {
+  height: 8px;
+  background-color: #ffffff;
+}
+/* 코스 카드 */
 .course-card {
-  background-color: #EAF6FA; /* 배경 테두리 효과 */
-  border-radius: 0; /* 둥글지 않게 */
-  margin: 16px 0;
+  position: relative;
+  width: 100%;
   overflow: hidden;
+
 }
 
 /* 이미지 */
 .course-card img {
   width: 100%;
   display: block;
+  border: none;
+  border-radius: 0;               /* 혹시 있을 둥근 모서리 제거 */
+  box-shadow: none;              /* 혹시 있을 그림자 제거 */
+  background: none;
 }
 
-/* 텍스트 박스: 이미지 위에 흰색 텍스트 박스가 아니라, 이미지 하단에 투명 오버레이 느낌이면 별도 구조 필요함 */
+/* 이미지 위 텍스트 */
 .card-text {
-  background-color: rgba(0, 0, 0, 0.5); /* 어두운 반투명 배경 */
-  padding: 10px 16px;
-  position: relative;
-  margin-top: -5px; /* 이미지와 약간 겹치게 */
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  background:none;
+  color: #fff;
+  padding: 12px 16px;
+  box-sizing: border-box;
 }
 
-/* 코스 제목 */
+/* 텍스트: 제목 */
 .card-text h2 {
-  font-size: 16px;
+  font-size: 18px;
   margin: 0;
-  color: #FFFFFF; /* 흰색 텍스트 */
+  font-weight: bold;
 }
 
-/* 코스 설명 */
+/* 텍스트: 설명 */
 .card-text p {
-  font-size: 14px;
-  color: #E0E0E0; /* 연한 회색 */
-  margin: 6px 0 0;
+  font-size: 11px;
+  margin: 4px 0 0;
+  color: #E0E0E0;
 }
 
-/* 하단바 */
+/* 하단 네비게이션 바 */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   width: 100%;
-  max-width: 420px;
+  width: 100vw;   /* ← 420px 고정 제거 */
   background-color: #ffffff;
   border-top: 1px solid #CCCCCC;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 10px 0;
-  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .bottom-nav a {
