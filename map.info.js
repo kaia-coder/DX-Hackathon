@@ -1,0 +1,133 @@
+html, body, .background {
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.background {
+  background: #EAF6FA;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+}
+
+/* 모바일 프레임, 네모 내부만 스크롤 */
+.mobile-frame {
+  position: relative;
+  margin: 60px 0 0 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: #fff;
+  border-radius: 60px 60px 32px 32px;
+  border: 1px solid #D3DEE1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 440px;
+}
+
+/* 이 부분만 네모 안 스크롤*/
+.festival-info {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 80px;     /* 네비게이션 바에 가리지 않도록 여백 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 60px 60px 32px 32px;
+}
+
+/* 아래 내용만 스크롤 */
+.content-scroll {
+  width: 100%;
+  overflow-y: auto;
+  /* 좌우 padding 필요시만 px로 */
+}
+
+.content-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.content-scroll::-webkit-scrollbar-thumb {
+  background: #e0e9ef;
+  border-radius: 20px;
+}
+
+/* --- 상세 레이아웃/스타일 --- */
+.festival-poster {
+  width: 100%;
+  max-width: 440px;
+  min-height: 170px;
+  aspect-ratio: 335/180;
+  object-fit: cover;
+  border-radius: 60px 60px 0 0;       
+  display: block;
+  background: #f4f4f4;
+}
+
+.festival-title {
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+  margin: 55px 0 20px 0;
+  letter-spacing: -0.5px;
+}
+.festival-explan{
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #424242;
+  text-align: center;
+  margin: 20px 0 38px 0;
+}
+.festival-detail-card {
+  width: 90%;
+  background: #F7FBFC;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px rgba(80,140,180,0.07);
+  border: 1.5px solid #A3D9F8;
+  margin: 0 auto 10px auto;
+  box-sizing: border-box;
+  padding: 28px 16px 20px 16px;
+}
+.festival-detail-card dl {
+  margin: 0;
+  padding: 0;
+}
+.festival-detail-card dt {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1565A0;
+  margin-top: 12px;
+  margin-bottom: 2px;
+}
+.festival-detail-card dd {
+  font-size: 15px;
+  font-weight: 400;
+  color: #32374A;
+  margin: 0 0 7px 0;
+  line-height: 1.6;
+}
+.festival-detail-card a {
+  color: #469BCB;
+  text-decoration: underline;
+}
+
+/* 작은 화면 반응형 */
+@media (max-width: 480px) {
+  .mobile-frame, .festival-poster {
+    max-width: 100vw;
+    border-radius: 7vw 7vw 6vw 6vw;
+  }
+  .festival-detail-card {
+    width: 96%;
+    border-radius: 16px;
+    padding: 18px 5vw 16px 5vw;
+  }
+}
