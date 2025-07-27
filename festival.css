@@ -55,6 +55,11 @@
   z-index: 9999;
 }
 
+.semo-icon {
+  position: relative; /* 또는 absolute, fixed, sticky 중 상황에 맞게 */
+  z-index: 9999;       /* 아주 크게 설정해서 다른 요소보다 위로 */
+}
+
 /* 아래 내용만 스크롤 */
 .content-scroll {
   width: 100%;

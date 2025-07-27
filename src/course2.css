@@ -41,7 +41,7 @@ body {
 
 .card-text p {
   font-size: 16px; /* 커짐 */
-  margin: 6px 0 0;
+  margin: px 0 0;
   color: #E9E9E9;
 }
 
@@ -70,7 +70,7 @@ body {
 .loc1 { top: 6%; left: 38%; }
 .loc2 { top: 31%; left: 49%; }
 .loc3 { top: 64%; left: 45%; }
-.loc4 { top: 92%; left: 72%; }
+.loc4 { top: 81%; left: 72%; }
 
 .map-layer {
   position: relative;
@@ -91,7 +91,7 @@ body {
   background-color: #EAF6FA;
   padding: 12px;
   width: 170px; /* 확대 */
-  height: 160px;
+  height: 180px;
   font-size: 11px;
   color: #000000;
   box-sizing: border-box;
@@ -99,10 +99,10 @@ body {
 }
 
 /* ✅ 퍼센트 위치 유지 */
-.box1 { top: -465%; left: 57%; }
-.box2 { top: -378%; left: 3%; }
-.box3 { top: -245%; left: 55%; }
-.box4 { top: -124%; left: 3%; }
+.box1 { top: -448%; left: 54%; }
+.box2 { top: -384%; left: 1%; }
+.box3 { top: -279%; left: 53%; }
+.box4 { top: -143%; left: 1%; }
 
 .info-box img {
   width: 100%;

@@ -8,7 +8,7 @@
 }
 .poster-topright {
   /* 상단 오버레이: 검색창/로고와 겹치지 않게 */
-  top: 170px;   
+  top: 102px;   
   right: 20px;
 }
 .poster-bottomleft {

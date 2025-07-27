@@ -124,7 +124,7 @@ html, body, .background {
 @media (max-width: 480px) {
   .mobile-frame, .place-poster {
     max-width: 100vw;
-    border-radius: 7vw 7vw 6vw 6vw;
+    border-radius: 16vw 15vw 6vw 6vw;
   }
   .place-detail-card {
     width: 96%;
