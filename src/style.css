@@ -3,7 +3,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Apple SD Gothic Neo', sans-serif;
+<<<<<<< HEAD
   background-color: #eaf6fa;
+=======
+  background-color: #EAF6FA;
+>>>>>>> origin/dev
 }
 
 /* 앱 전체 wrapper */
@@ -31,7 +35,11 @@ body {
 .divider-line {
   height: 8px;
   width: 100%;
+<<<<<<< HEAD
   background-color: #cccccc;
+=======
+  background-color: #CCCCCC;
+>>>>>>> origin/dev
   margin: 0;
 }
 
@@ -67,7 +75,11 @@ body {
 
 .description-text .sub-desc {
   font-size: 11px;
+<<<<<<< HEAD
   color: #a6a6a6;
+=======
+  color: #A6A6A6;
+>>>>>>> origin/dev
   margin-top: 0 !important;
   padding-top: 0 !important;
   line-height: 1.2;
@@ -82,7 +94,11 @@ body {
 /* 이미지 사이 파란 띠 */
 .section-blue {
   height: 13px;
+<<<<<<< HEAD
   background-color: #eaf6fa;
+=======
+  background-color: #EAF6FA;
+>>>>>>> origin/dev
 }
 
 /* 이미지 사이 흰색 띠 */
@@ -95,6 +111,10 @@ body {
   position: relative;
   width: 100%;
   overflow: hidden;
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/dev
 }
 
 /* 이미지 */
@@ -102,8 +122,13 @@ body {
   width: 100%;
   display: block;
   border: none;
+<<<<<<< HEAD
   border-radius: 0; /* 혹시 있을 둥근 모서리 제거 */
   box-shadow: none; /* 혹시 있을 그림자 제거 */
+=======
+  border-radius: 0;               /* 혹시 있을 둥근 모서리 제거 */
+  box-shadow: none;              /* 혹시 있을 그림자 제거 */
+>>>>>>> origin/dev
   background: none;
 }
 
@@ -113,7 +138,11 @@ body {
   bottom: 30px;
   left: 0;
   width: 100%;
+<<<<<<< HEAD
   background: none;
+=======
+  background:none;
+>>>>>>> origin/dev
   color: #fff;
   padding: 12px 16px;
   box-sizing: border-box;
@@ -130,7 +159,11 @@ body {
 .card-text p {
   font-size: 11px;
   margin: 4px 0 0;
+<<<<<<< HEAD
   color: #e0e0e0;
+=======
+  color: #E0E0E0;
+>>>>>>> origin/dev
 }
 
 /* 하단 네비게이션 바 */
@@ -138,9 +171,15 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
+<<<<<<< HEAD
   width: 100vw; /* ← 420px 고정 제거 */
   background-color: #ffffff;
   border-top: 1px solid #cccccc;
+=======
+  width: 100vw;   /* ← 420px 고정 제거 */
+  background-color: #ffffff;
+  border-top: 1px solid #CCCCCC;
+>>>>>>> origin/dev
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -170,16 +209,24 @@ body {
 
 .close-button {
   position: absolute;
+<<<<<<< HEAD
 
   top: -1%; /* 원하는 위치로 조정 */
 
   left: 87%; /* 원하는 위치로 조정 */
 
   z-index: 20;
+=======
+  top: -1%;   /* 원하는 위치로 조정 */
+  left: 87%;  /* 원하는 위치로 조정 */
+  z-index: 20;
+
+>>>>>>> origin/dev
 }
 
 .close-button img {
   width: 32px;
+<<<<<<< HEAD
 
   height: 32px;
 
@@ -187,3 +234,9 @@ body {
 
   outline: none;
 }
+=======
+  height: 32px;
+  border: none;
+  outline: none;
+}
+>>>>>>> origin/dev
