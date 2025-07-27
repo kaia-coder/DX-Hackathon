@@ -164,3 +164,22 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+.app-header {
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: -1%;   /* 원하는 위치로 조정 */
+  left: 87%;  /* 원하는 위치로 조정 */
+  z-index: 20;
+
+}
+
+.close-button img {
+  width: 32px;
+  height: 32px;
+  border: none;
+  outline: none;
+}
