@@ -21,12 +21,22 @@ html, body, .background {
   width: 100%;
   height: calc(100vh - 60px);
   background: #fff;
-  border-radius: 60px 60px 32px 32px;
+  border-radius: 80px 60px 32px 32px;
   border: 1px solid #D3DEE1;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   max-width: 440px;
+}
+.top-bar {
+  width: 70px;
+  height: 5px;
+  background: #CCCCCC;
+  border-radius: 4px;
+  position: absolute;
+  top: 8px;   
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* 이 부분만 네모 안 스크롤*/
