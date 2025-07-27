@@ -1,0 +1,74 @@
+/* src/styles/common/bottomnav.css */
+/* bottomnav.css */
+.bottom-nav {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  height: 64px;
+  background: #fff;
+  border-top: 1.5px solid #D3DEE1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+}
+
+.nav-btn {
+  text-decoration: none;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #7B7B7B !important;
+  font-size: 13px;
+  font-weight: 600;        
+  padding: 0 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+  outline: none;
+}
+
+.nav-btn:visited,
+.nav-btn:active,
+.nav-btn.active {
+  color: #7B7B7B !important; 
+  font-weight: 600;       
+}
+
+.icon-box {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 4px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+}
+.icon-box img, .icon-box svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.nav-label {
+  line-height: 1;
+  color: #7B7B7B !important; 
+  font-size: 13px;
+  font-weight: 600;        
+}
+/* 버튼 클릭/탭/포커스 시 네모·파랑·회색 등 강조 알림 완전 차단 */
+.nav-btn,
+.nav-btn:active,
+.nav-btn:focus,
+.nav-btn:focus-visible,
+.nav-btn:visited {
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+  -moz-user-select: none !important;
+  /* 모바일 터치 하이라이트 차단 (크롬, 사파리, 안드로이드) */
+  -webkit-tap-highlight-color: transparent !important;
+  -tap-highlight-color: transparent !important;
+}

@@ -35,14 +35,9 @@ async function fetchFestivals() {
     const response = await fetch(`${API_BASE_URL}/festivals`);
     const festivals = await response.json();
     console.log('✅ 축제 데이터 로드 완료:', festivals);
-
-    // 페이지에 결과 표시 (테스트용)
-    displayAPILog('축제 데이터', festivals);
-
     return festivals;
   } catch (error) {
     console.error('❌ 축제 데이터 로드 실패:', error);
-    displayAPILog('축제 데이터 오류', error.message);
     return [];
   }
 }
@@ -53,14 +48,9 @@ async function fetchPlaces() {
     const response = await fetch(`${API_BASE_URL}/places`);
     const places = await response.json();
     console.log('✅ 관광지 데이터 로드 완료:', places);
-
-    // 페이지에 결과 표시 (테스트용)
-    displayAPILog('관광지 데이터', places);
-
     return places;
   } catch (error) {
     console.error('❌ 관광지 데이터 로드 실패:', error);
-    displayAPILog('관광지 데이터 오류', error.message);
     return [];
   }
 }
@@ -73,63 +63,11 @@ async function searchAPI(query) {
     );
     const data = await response.json();
     console.log('✅ 검색 결과:', data);
-
-    // 페이지에 결과 표시 (테스트용)
-    displayAPILog('검색 결과', data);
-
     return data;
   } catch (error) {
     console.error('❌ 검색 실패:', error);
-    displayAPILog('검색 오류', error.message);
     return null;
   }
-}
-
-// API 로그를 페이지에 표시하는 함수 (테스트용)
-function displayAPILog(title, data) {
-  // 기존 로그 요소 제거
-  const existingLog = document.getElementById('api-log');
-  if (existingLog) {
-    existingLog.remove();
-  }
-
-  // 새 로그 요소 생성
-  const logDiv = document.createElement('div');
-  logDiv.id = 'api-log';
-  logDiv.style.cssText = `
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 15px;
-    border-radius: 5px;
-    max-width: 300px;
-    max-height: 400px;
-    overflow-y: auto;
-    z-index: 9999;
-    font-family: monospace;
-    font-size: 12px;
-  `;
-
-  logDiv.innerHTML = `
-    <div style="margin-bottom: 10px; font-weight: bold; color: #00ff00;">${title}</div>
-    <pre style="margin: 0; white-space: pre-wrap;">${JSON.stringify(
-      data,
-      null,
-      2
-    )}</pre>
-    <button onclick="this.parentElement.remove()" style="margin-top: 10px; padding: 5px 10px; background: #ff4444; color: white; border: none; border-radius: 3px; cursor: pointer;">닫기</button>
-  `;
-
-  document.body.appendChild(logDiv);
-
-  // 10초 후 자동 제거
-  setTimeout(() => {
-    if (logDiv.parentElement) {
-      logDiv.remove();
-    }
-  }, 10000);
 }
 
 window.addEventListener('DOMContentLoaded', () => {

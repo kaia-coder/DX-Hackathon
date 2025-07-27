@@ -1,0 +1,25 @@
+/* src/styles/common/background.css */
+/* background.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  /* 아래 스크롤바 생기는 오버플로우 방지 */
+  overflow-x: hidden;
+}
+
+.background {
+  background: #EAF6FA;
+  min-height: 100vh;
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+

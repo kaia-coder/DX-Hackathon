@@ -1,0 +1,7 @@
+/* src/styles/common/background.css */
+.background {
+  background: #EAF6FA;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+}
