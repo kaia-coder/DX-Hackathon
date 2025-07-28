@@ -38,22 +38,27 @@ const API_BASE_URL = getApiBaseUrl();
 console.log(`🌐 API Base URL: ${API_BASE_URL}`);
 
 window.addEventListener('DOMContentLoaded', () => {
-  // 1. 지도 색상/클릭
-  document.querySelectorAll('#main-map path').forEach((path) => {
-    path.setAttribute(
-      'fill',
-      FESTIVAL_REGION_IDS.includes(path.id) ? FESTIVAL_COLOR : BASE_COLOR
-    );
-    path.style.cursor = 'pointer';
-    path.addEventListener('click', () => {
-      window.location.href = `./map.html?region=${encodeURIComponent(path.id)}`;
+  // 1. 지도 색상/클릭 (메인 페이지에만 존재하는 요소들)
+  const mainMapPaths = document.querySelectorAll('#main-map path');
+  if (mainMapPaths.length > 0) {
+    mainMapPaths.forEach((path) => {
+      path.setAttribute(
+        'fill',
+        FESTIVAL_REGION_IDS.includes(path.id) ? FESTIVAL_COLOR : BASE_COLOR
+      );
+      path.style.cursor = 'pointer';
+      path.addEventListener('click', () => {
+        window.location.href = `./map.html?region=${encodeURIComponent(
+          path.id
+        )}`;
+      });
+
+      path.onselectstart = () => false;
+      path.onmousedown = (e) => e.preventDefault();
     });
+  }
 
-    path.onselectstart = () => false;
-    path.onmousedown = (e) => e.preventDefault();
-  });
-
-  // 2. 검색창
+  // 2. 검색창 (메인 페이지에만 존재하는 요소들)
   const searchInput = document.getElementById('main-search-input');
   if (searchInput) {
     searchInput.addEventListener('keydown', function (e) {
@@ -91,29 +96,32 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3. 포스터 표시
+  // 3. 포스터 표시 (메인 페이지에만 존재하는 요소들)
   const topBox = document.getElementById('festival-poster-top');
   const topImg = document.getElementById('poster-img-top');
   const botBox = document.getElementById('festival-poster-bottom');
   const botImg = document.getElementById('poster-img-bottom');
-  topBox.style.display = 'none';
-  botBox.style.display = 'none';
-  topImg.style.display = 'none';
-  botImg.style.display = 'none';
-  festivalPosters.forEach((poster) => {
-    if (poster.position === 'top' && poster.image) {
-      topImg.src = poster.image;
-      topImg.style.display = 'block';
-      topBox.style.display = '';
-    }
-    if (poster.position === 'bottom' && poster.image) {
-      botImg.src = poster.image;
-      botImg.style.display = 'block';
-      botBox.style.display = '';
-    }
-  });
 
-  // 4. 폭죽 마크 표시
+  if (topBox && topImg && botBox && botImg) {
+    topBox.style.display = 'none';
+    botBox.style.display = 'none';
+    topImg.style.display = 'none';
+    botImg.style.display = 'none';
+    festivalPosters.forEach((poster) => {
+      if (poster.position === 'top' && poster.image) {
+        topImg.src = poster.image;
+        topImg.style.display = 'block';
+        topBox.style.display = '';
+      }
+      if (poster.position === 'bottom' && poster.image) {
+        botImg.src = poster.image;
+        botImg.style.display = 'block';
+        botBox.style.display = '';
+      }
+    });
+  }
+
+  // 4. 폭죽 마크 표시 (메인 페이지에만 존재하는 요소들)
   const marksLayer = document.getElementById('firework-marks-layer');
   if (marksLayer) {
     marksLayer.innerHTML = '';
