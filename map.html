@@ -9,10 +9,31 @@
     <link rel="stylesheet" href="category.css" />
     <link rel="stylesheet" href="map.area.css" />
     <link rel="stylesheet" href="bottomnav.css" />
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a5cc7b65ae5d251113eff578a56cd8f1"
-    ></script>
+    <script>
+      // 카카오맵 API 동적 로드
+      function loadKakaoMapAPI() {
+        return new Promise((resolve, reject) => {
+          if (window.kakao && window.kakao.maps) {
+            resolve();
+            return;
+          }
+
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src =
+            '//dapi.kakao.com/v2/maps/sdk.js?appkey=a5cc7b65ae5d251113eff578a56cd8f1';
+          script.onload = () => {
+            console.log('✅ 카카오맵 API 스크립트 로드 완료');
+            resolve();
+          };
+          script.onerror = () => {
+            console.error('❌ 카카오맵 API 스크립트 로드 실패');
+            reject(new Error('카카오맵 API 로드 실패'));
+          };
+          document.head.appendChild(script);
+        });
+      }
+    </script>
   </head>
   <body>
     <div class="background">
@@ -103,12 +124,12 @@
 
         console.log('📍 좌표:', coords);
 
-        const options = {
-          center: new kakao.maps.LatLng(coords.lat, coords.lng),
-          level: 8,
-        };
-
         try {
+          const options = {
+            center: new kakao.maps.LatLng(coords.lat, coords.lng),
+            level: 8,
+          };
+
           const map = new kakao.maps.Map(container, options);
           console.log('✅ 카카오맵 생성 완료');
 
@@ -151,32 +172,37 @@
       }
 
       // 카카오맵 API 로드 완료 후 지도 초기화
-      function tryInitMap() {
+      async function tryInitMap() {
         console.log('🔄 카카오맵 API 확인 중...');
-        console.log('kakao 객체:', typeof kakao);
-        console.log('kakao.maps 객체:', typeof kakao?.maps);
 
-        if (typeof kakao !== 'undefined' && kakao.maps) {
+        try {
+          await loadKakaoMapAPI();
           console.log('✅ 카카오맵 API 로드 완료, 지도 초기화 시작');
           initMap();
-        } else {
-          console.log('⏳ 카카오맵 API 로드 대기 중...');
-          setTimeout(tryInitMap, 100);
+        } catch (error) {
+          console.error('❌ 카카오맵 API 로드 실패:', error);
+          // 3초 후 재시도
+          setTimeout(tryInitMap, 3000);
         }
       }
 
       // 페이지 로드 시 지도 초기화 시도
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', tryInitMap);
-      } else {
-        tryInitMap();
-      }
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log('📄 DOM 로드 완료');
+        setTimeout(tryInitMap, 100);
+      });
 
       // 추가 안전장치: window load 이벤트
       window.addEventListener('load', function () {
         console.log('🌐 페이지 로드 완료, 지도 초기화 재시도');
         setTimeout(tryInitMap, 500);
       });
+
+      // 최종 안전장치: 3초 후 재시도
+      setTimeout(function () {
+        console.log('⏰ 최종 재시도');
+        tryInitMap();
+      }, 3000);
 
       // 검색 기능 추가
       const searchInput = document.getElementById('main-search-input');
