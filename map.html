@@ -9,31 +9,10 @@
     <link rel="stylesheet" href="category.css" />
     <link rel="stylesheet" href="map.area.css" />
     <link rel="stylesheet" href="bottomnav.css" />
-    <script>
-      // 카카오맵 API 동적 로드
-      function loadKakaoMapAPI() {
-        return new Promise((resolve, reject) => {
-          if (window.kakao && window.kakao.maps) {
-            resolve();
-            return;
-          }
-
-          const script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src =
-            '//dapi.kakao.com/v2/maps/sdk.js?appkey=a5cc7b65ae5d251113eff578a56cd8f1';
-          script.onload = () => {
-            console.log('✅ 카카오맵 API 스크립트 로드 완료');
-            resolve();
-          };
-          script.onerror = () => {
-            console.error('❌ 카카오맵 API 스크립트 로드 실패');
-            reject(new Error('카카오맵 API 로드 실패'));
-          };
-          document.head.appendChild(script);
-        });
-      }
-    </script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a5cc7b65ae5d251113eff578a56cd8f1"
+    ></script>
   </head>
   <body>
     <div class="background">
@@ -168,21 +147,55 @@
           }
         } catch (error) {
           console.error('❌ 카카오맵 초기화 실패:', error);
+          // 카카오맵 실패 시 대체 지도 표시
+          showFallbackMap();
         }
       }
 
+      // 대체 지도 표시 (Google Maps)
+      function showFallbackMap() {
+        console.log('🗺️ 대체 지도 표시 중...');
+        const container = document.getElementById('map');
+        if (!container) return;
+
+        const regionNames = {
+          jochiwon: '조치원읍',
+          center: '세종시 중심',
+          jeondong: '전동면',
+          yeonseo: '연서면',
+          yeondong: '연동면',
+          janggun: '장군면',
+          bugang: '부강면',
+          guemnam: '금남면',
+          sojeong: '소정면',
+          jeonui: '전의면',
+        };
+
+        const regionName = regionNames[region] || region;
+
+        // 간단한 대체 지도 (API 키 없음)
+        container.innerHTML = `
+          <div style="width:100%; height:100%; background:#f0f0f0; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:18px;">
+            <div style="font-size:24px; margin-bottom:10px;">🗺️</div>
+            <div style="font-size:16px; font-weight:bold; margin-bottom:5px;">${regionName}</div>
+            <div style="font-size:12px; color:#666;">좌표: ${coords.lat}, ${coords.lng}</div>
+            <div style="font-size:12px; color:#999; margin-top:10px;">카카오맵 로드 중...</div>
+          </div>
+        `;
+        console.log('✅ 대체 지도 표시 완료');
+      }
+
       // 카카오맵 API 로드 완료 후 지도 초기화
-      async function tryInitMap() {
+      function tryInitMap() {
         console.log('🔄 카카오맵 API 확인 중...');
 
-        try {
-          await loadKakaoMapAPI();
+        // 카카오맵 API가 로드되었는지 확인
+        if (typeof kakao !== 'undefined' && kakao.maps) {
           console.log('✅ 카카오맵 API 로드 완료, 지도 초기화 시작');
           initMap();
-        } catch (error) {
-          console.error('❌ 카카오맵 API 로드 실패:', error);
-          // 3초 후 재시도
-          setTimeout(tryInitMap, 3000);
+        } else {
+          console.log('⏳ 카카오맵 API 로드 대기 중...');
+          setTimeout(tryInitMap, 100);
         }
       }
 
@@ -201,7 +214,12 @@
       // 최종 안전장치: 3초 후 재시도
       setTimeout(function () {
         console.log('⏰ 최종 재시도');
-        tryInitMap();
+        if (typeof kakao !== 'undefined' && kakao.maps) {
+          tryInitMap();
+        } else {
+          console.log('❌ 카카오맵 API 로드 실패, 대체 지도 표시');
+          showFallbackMap();
+        }
       }, 3000);
 
       // 검색 기능 추가
