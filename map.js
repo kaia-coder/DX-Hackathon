@@ -17,6 +17,7 @@ function getApiBaseUrl() {
 }
 
 const API_BASE_URL = getApiBaseUrl();
+// console.log 제거 - 카카오맵 초기화 방해 방지
 
 // 카테고리 버튼 활성화
 document.querySelectorAll('.category-btn').forEach((btn) => {
@@ -64,25 +65,29 @@ if (searchInput) {
   }
 }
 
-// ✅ 지도 지역 클릭 이벤트 추가
+// ✅ 지도 지역 클릭 이벤트 추가 (메인 페이지에만 존재하는 요소들)
 const paths = document.querySelectorAll('#main-map path');
-paths.forEach((path) => {
-  path.style.cursor = 'pointer';
+if (paths.length > 0) {
+  paths.forEach((path) => {
+    path.style.cursor = 'pointer';
 
-  path.addEventListener('click', () => {
-    const regionId = path.id;
-    window.location.href = `./map.html?region=${encodeURIComponent(regionId)}`;
-  });
-
-  // 키보드 접근성
-  path.setAttribute('tabindex', 0);
-  path.setAttribute('role', 'button');
-  path.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    path.addEventListener('click', () => {
       const regionId = path.id;
       window.location.href = `./map.html?region=${encodeURIComponent(
         regionId
       )}`;
-    }
+    });
+
+    // 키보드 접근성
+    path.setAttribute('tabindex', 0);
+    path.setAttribute('role', 'button');
+    path.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const regionId = path.id;
+        window.location.href = `./map.html?region=${encodeURIComponent(
+          regionId
+        )}`;
+      }
+    });
   });
-});
+}
