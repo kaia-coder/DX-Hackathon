@@ -30,3 +30,16 @@
   border-radius: 18px;
   pointer-events: none;
 }
+
+.top-logo-header {
+  width: 90%;
+  padding: 16px 0; /* 위아래 여백 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-logo {
+  height: 40px;  /* 원하면 조절 가능 */
+  object-fit: contain;
+}

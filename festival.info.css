@@ -61,12 +61,17 @@ html, body, .background {
 .festival-poster {
   width: 100%;
   max-width: 440px;
-  min-height: 170px;
-  aspect-ratio: 335/180;
+  max-height: 180px;
   object-fit: cover;
-  border-radius: 60px 60px 0 0;       
+  border-radius: 20px 20px 0 0;
   display: block;
   background: #f4f4f4;
+}
+
+img {
+  max-width: 100%; 
+  height: auto;
+  display: block;
 }
 
 .festival-title {
@@ -78,6 +83,19 @@ html, body, .background {
   margin: 55px 0 67px 0;
   letter-spacing: -0.5px;
 }
+
+.festival-subtitle {
+  font-size: 11px;
+  font-weight: 400;
+  color: #929292;
+  text-align: left;
+  padding: 0 20px;
+  margin: 20px auto;
+  letter-spacing: -0.1px;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
 .festival-detail-card {
   width: 90%;
   background: #F7FBFC;
@@ -142,4 +160,7 @@ html, body, .background {
   pointer-events: none;
 }
 
+html, body, .background {
+  overflow-x: hidden;
+}
 

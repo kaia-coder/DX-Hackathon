@@ -152,8 +152,8 @@
 .card-poster {
   width: 100%;
   aspect-ratio: 3/2;
-  object-fit: cover;
-  border-bottom: 1px solid #EAF6FA;
+  object-fit: contain;
+  background: #e0e9ef;
 }
 .card-name {
   font-size: 16px;

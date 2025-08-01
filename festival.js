@@ -2,8 +2,7 @@
 window.addEventListener('DOMContentLoaded', function() {
   const track = document.querySelector('.carousel-track');
   const posters = document.querySelectorAll('.main-poster');
-  if (!track || posters.length === 0) return;  // 요소가 없으면 종료
-
+  if (!track || posters.length === 0) return; 
   let current = 0;
   let startX = 0;
   let deltaX = 0;

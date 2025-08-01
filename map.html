@@ -19,26 +19,17 @@
     2. 도메인 등록: kaia-coder.github.io
     3. 카카오 개발자 콘솔에서 JavaScript 키 확인
     -->
-  </head>
+  </head> 
   <body>
     <div class="background">
-      <!-- 상단 검색창 -->
-      <div class="search-bar">
-        <img
-          src="assets/nav/search.svg"
-          class="search-icon"
-          width="18"
-          height="18"
-          alt="검색"
-        />
-        <input
-          class="search-input"
-          type="text"
-          placeholder="검색"
-          id="main-search-input"
-          value="검색"
-        />
-      </div>
+      <!-- 상단 로고만 있는 헤더 -->
+      <header class="top-logo-header">
+        <img src="src/assets/nav/logo.svg" alt="세모 로고" class="top-logo" />
+        <div class="close-button" onclick="window.location.href='index.html'" style="position: absolute; top: 16px; right: 16px; z-index: 10;">
+          <img src="assets/nav/close.svg" alt="닫기 버튼" style="width: 32px; height: 32px;" />
+        </div>
+      </header>
+      
       <!-- 카테고리 바 -->
       <div class="category-bar">
         <button class="category-btn">전체</button>
