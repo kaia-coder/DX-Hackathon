@@ -13,13 +13,13 @@
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=476ca7db55ecd66a49bc53036289f68b"
     ></script>
-    <!-- 
+    <!--
     카카오맵 API 키 확인 필요:
     1. JavaScript API 키 사용 (REST API 키 아님)
     2. 도메인 등록: kaia-coder.github.io
     3. 카카오 개발자 콘솔에서 JavaScript 키 확인
     -->
-  </head> 
+  </head>
   <body>
     <div class="background">
       <!-- 상단 로고만 있는 헤더 -->
@@ -29,7 +29,7 @@
           <img src="assets/nav/close.svg" alt="닫기 버튼" style="width: 32px; height: 32px;" />
         </div>
       </header>
-      
+
       <!-- 카테고리 바 -->
       <div class="category-bar">
         <button class="category-btn">전체</button>
@@ -66,6 +66,11 @@
     </div>
 
     <script>
+      // 1. 전역 변수 추가 - 최상단에 배치
+      let map;
+      let mainMarker = null;
+      let mainInfowindow = null;
+
       // URL에서 지역 파라미터 가져오기
       const urlParams = new URLSearchParams(window.location.search);
       const region = urlParams.get('region');
@@ -88,7 +93,7 @@
       const defaultCoords = { lat: 36.4875, lng: 127.2817 };
       const coords = regionCoordinates[region] || defaultCoords;
 
-      // 카카오맵 초기화
+      // 2. 카카오맵 초기화
       function initMap() {
         console.log('🗺️ 카카오맵 초기화 시작...');
 
@@ -105,20 +110,16 @@
             center: new kakao.maps.LatLng(coords.lat, coords.lng),
             level: 8,
           };
-          map = new kakao.maps.Map(container, options);
 
-          const map = new kakao.maps.Map(container, options);
+          map = new kakao.maps.Map(container, options);
           console.log('✅ 카카오맵 생성 완료');
 
-          // 마커 추가
-          const marker = new kakao.maps.Marker({
+          // 기존 지역 마커·인포윈도우 생성 및 전역 변수 할당
+          mainMarker = new kakao.maps.Marker({
             position: new kakao.maps.LatLng(coords.lat, coords.lng),
           });
+          mainMarker.setMap(map);
 
-          marker.setMap(map);
-          console.log('📍 마커 추가 완료');
-
-          // 지역명 표시
           if (region) {
             const regionNames = {
               jochiwon: '조치원읍',
@@ -132,20 +133,17 @@
               sojeong: '소정면',
               jeonui: '전의면',
             };
-
             const regionName = regionNames[region] || region;
 
-            // 인포윈도우 추가
-            const infowindow = new kakao.maps.InfoWindow({
+            mainInfowindow = new kakao.maps.InfoWindow({
               content: `<div style="padding:5px;font-size:12px;">${regionName}</div>`,
             });
+            mainInfowindow.open(map, mainMarker);
 
-            infowindow.open(map, marker);
             console.log('🏷️ 인포윈도우 추가 완료:', regionName);
           }
         } catch (error) {
           console.error('❌ 카카오맵 초기화 실패:', error);
-          // 카카오맵 실패 시 대체 지도 표시
           showFallbackMap();
         }
       }
@@ -171,7 +169,6 @@
 
         const regionName = regionNames[region] || region;
 
-        // 개선된 대체 지도
         container.innerHTML = `
           <div style="width:100%; height:100%; background:linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:18px; position:relative;">
             <div style="font-size:48px; margin-bottom:15px;">🗺️</div>
@@ -189,7 +186,86 @@
         console.log('✅ 대체 지도 표시 완료');
       }
 
-      // 카카오맵 API 로드 완료 후 지도 초기화
+      // 3. 조치원짬뽕 맛집 마커 표시 함수
+      function showRestaurantMarker() {
+        // 기존 지역 마커와 인포윈도우 제거
+        if (mainInfowindow) {
+          mainInfowindow.close();
+        }
+        if (mainMarker) {
+          mainMarker.setMap(null);
+        }
+
+        // 조치원짬뽕 위치 좌표
+        const rLat = 36.6016860496612;
+        const rLng = 127.291591378015;
+
+        mainMarker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(rLat, rLng),
+        });
+        mainMarker.setMap(map);
+
+        const infoHtml = `
+          <div style="min-width:160px;padding:6px 10px;font-size:12px;">
+            <b>조치원짬뽕</b><br>
+            세종 조치원읍 돌마루2길 7
+          </div>
+        `;
+        mainInfowindow = new kakao.maps.InfoWindow({ content: infoHtml });
+        mainInfowindow.open(map, mainMarker);
+
+        map.setCenter(new kakao.maps.LatLng(rLat, rLng));
+      }
+
+      // 4. 카테고리 버튼 클릭 핸들러 확장 (기존 + 맛집 기능)
+      document.querySelectorAll('.category-btn').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          // 버튼 활성화 토글
+          document.querySelectorAll('.category-btn').forEach((b) => b.classList.remove('active'));
+          this.classList.add('active');
+
+          if (this.textContent.trim() === '맛집') {
+            showRestaurantMarker();
+          } else {
+            // 맛집 이외, 기존 지역마커로 복원
+            if (mainInfowindow) {
+              mainInfowindow.close();
+            }
+            if (mainMarker) {
+              mainMarker.setMap(null);
+            }
+
+            mainMarker = new kakao.maps.Marker({
+              position: new kakao.maps.LatLng(coords.lat, coords.lng),
+            });
+            mainMarker.setMap(map);
+
+            if (region) {
+              const regionNames = {
+                jochiwon: '조치원읍',
+                center: '세종시 중심',
+                jeondong: '전동면',
+                yeonseo: '연서면',
+                yeondong: '연동면',
+                janggun: '장군면',
+                bugang: '부강면',
+                guemnam: '금남면',
+                sojeong: '소정면',
+                jeonui: '전의면',
+              };
+              const regionName = regionNames[region] || region;
+
+              mainInfowindow = new kakao.maps.InfoWindow({
+                content: `<div style="padding:5px;font-size:12px;">${regionName}</div>`,
+              });
+              mainInfowindow.open(map, mainMarker);
+            }
+            map.setCenter(new kakao.maps.LatLng(coords.lat, coords.lng));
+          }
+        });
+      });
+
+      // 카카오맵 API 로드 완료 후 지도 초기화 시도
       let retryCount = 0;
       const MAX_RETRIES = 5;
 
@@ -202,37 +278,32 @@
             ')'
         );
 
-        // 최대 재시도 횟수 체크
         if (retryCount >= MAX_RETRIES) {
           console.log('❌ 최대 재시도 횟수 초과, 대체 지도 표시');
           showFallbackMap();
           return;
         }
 
-        // 카카오맵 API가 로드되었는지 확인
         if (typeof kakao !== 'undefined' && kakao.maps) {
           console.log('✅ 카카오맵 API 로드 완료, 지도 초기화 시작');
           initMap();
         } else {
           console.log('⏳ 카카오맵 API 로드 대기 중...');
           retryCount++;
-          setTimeout(tryInitMap, 1000); // 1초 후 재시도
+          setTimeout(tryInitMap, 1000);
         }
       }
 
-      // 페이지 로드 시 지도 초기화 시도
       document.addEventListener('DOMContentLoaded', function () {
         console.log('📄 DOM 로드 완료');
         setTimeout(tryInitMap, 100);
       });
 
-      // 추가 안전장치: window load 이벤트
       window.addEventListener('load', function () {
         console.log('🌐 페이지 로드 완료, 지도 초기화 재시도');
         setTimeout(tryInitMap, 500);
       });
 
-      // 최종 안전장치: 3초 후 재시도
       setTimeout(function () {
         console.log('⏰ 최종 재시도');
         if (typeof kakao !== 'undefined' && kakao.maps) {
@@ -243,7 +314,8 @@
         }
       }, 3000);
 
-      // 검색 기능 추가
+
+      // 검색 기능 및 기타 기존 코드 계속 유지...
       const searchInput = document.getElementById('main-search-input');
       if (searchInput) {
         searchInput.addEventListener('keydown', function (e) {
@@ -259,7 +331,6 @@
         const query = searchInput.value.trim();
         if (!query) return;
 
-        // API URL 설정
         const API_BASE_URL = window.location.hostname.includes('github.io')
           ? 'https://sejong-festival-api.onrender.com'
           : 'http://localhost:8000';
@@ -268,9 +339,7 @@
           .then((res) => res.json())
           .then((data) => {
             if (data.type === 'region' && data.key) {
-              window.location.href = `./map.html?region=${encodeURIComponent(
-                data.key
-              )}`;
+              window.location.href = `./map.html?region=${encodeURIComponent(data.key)}`;
             } else if (
               (data.type === 'cafe' || data.type === 'food') &&
               data.key
@@ -287,16 +356,6 @@
             alert('검색 중 오류가 발생했습니다.');
           });
       }
-
-      // 카테고리 버튼 활성화
-      document.querySelectorAll('.category-btn').forEach((btn) => {
-        btn.addEventListener('click', function () {
-          document
-            .querySelectorAll('.category-btn')
-            .forEach((b) => b.classList.remove('active'));
-          this.classList.add('active');
-        });
-      });
     </script>
   </body>
 </html>
